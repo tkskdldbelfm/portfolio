@@ -381,12 +381,17 @@ section h2 {
     background: #202E00;
 }
 
-.contents-container .select-contents video {
+.contents-container .select-contents .video {
     width: 64rem;
     height: 39.875rem;
     border-radius: 1.5rem;
     margin: 1.75rem 1.5rem 1.75rem 1.75rem;
     background: #000;
+}
+
+.contents-container .select-contents .video iframe {
+    width: 100%;
+    height: 100%;
 }
 
 .contents-container .select-contents .text-area {
@@ -724,6 +729,12 @@ article {
     font-style: normal;
     font-weight: 700;
     line-height: normal;
+
+    transition: 0.2s ease-out;
+}
+
+#login-now .textarea .buttons .button:hover {
+    background: #23290c;
 }
 
 #login-now .textarea .buttons .button.join {
@@ -805,7 +816,7 @@ footer .footer-mid .page-list .lists li:first-child a {
 }
 
 footer .footer-mid .page-list .lists li a,
-.site-info .text {
+.text {
     color: #A0A0A0;
 
     font-family: Noto Sans KR;
@@ -817,4 +828,43 @@ footer .footer-mid .page-list .lists li a,
 
 .site-info .text {
     margin-bottom: 0.75rem;
+}
+
+.about {
+    display: flex;
+    flex-direction: column;
+    gap: 3.31rem;
+    width: 12.875rem;
+}
+
+.about .text h2 {
+    margin-bottom: 0.5rem;
+
+    color: #fff;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.footer-download h2 {
+    color: #fff;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+
+    margin-bottom: 1.5rem;
+}
+
+.footer-download .download-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+}
+
+.download-logo {
+    width: 13rem;
+    height: 8rem;
 }
