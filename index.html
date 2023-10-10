@@ -7,9 +7,17 @@
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="font-family.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 </head>
 
 <body>
+    <div id="drawing_line">
+        <svg class="drawing_line_svg">
+            <circle class="drawing_line_circle" cx="0" cy="0" r="8"></circle>
+            <polyline class="drawing_line_polyline" points=""></polyline>
+        </svg>
+    </div>
     <nav>
         <div class="nav container">
             <div class="nav-anchor">
@@ -17,47 +25,41 @@
                 <a href="#" class="nav-link">Work</a>
                 <a href="#" class="nav-link">About Me</a>
                 <a href="#" class="nav-link">Contact</a>
-                <a href="#" class="nav-link"><img src="./logo/logo-row.svg" alt="logo"></a>
+                <a href="#" class="nav-link"><img src="./logo/logo.svg" alt="logo"></a>
             </div>
         </div>
     </nav>
-    <div class="main-bg container">
-        <div class="lines">
-            <div class="bg-line"></div>
-            <div class="bg-line"></div>
+
+    <div class="menuBtn">
+        <img src="./icons/menu-stroke-white.png" alt="">
+    </div>
+    <div class="nav-mobile">
+        <div class="menu-slider">
+            <a href="#" class="nav-link active">Home</a>
+            <a href="#" class="nav-link">Work</a>
+            <a href="#" class="nav-link">About Me</a>
+            <a href="#" class="nav-link">Contact</a>
         </div>
-        <div class="lines">
-            <div class="bg-line"></div>
-            <div class="bg-line"></div>
-        </div>
-        <div class="lines">
-            <div class="bg-line"></div>
-            <div class="bg-line"></div>
-        </div>
-        <div class="lines">
-            <div class="bg-line"></div>
-            <div class="bg-line"></div>
-        </div>
-        <div class="lines">
-            <div class="bg-line"></div>
-            <div class="bg-line"></div>
-        </div>
+    </div>
+
 
     </div>
     <main>
-
         <section id="main-banner" class="container">
-            <div class="copy left">
-                <img src="./img/profile-img.png" alt="Lee GwangWon">
-                <h3>다양한 역할을 경험하며 성장중인 UI/UX 디자이너입니다.</h3>
-                <p>사용자 중심의 UX/UI 디자인과 개발 지식을 결합하여 <br>
-                    협업과 리더십을 통해 효율적인 프로덕트 디자인과 서비스 개선을 추구합니다.</p>
+            <div class="banner-text">
+                <div class="titleEffect">
+                    <h3>PROTFOLIO</h3>
+                    <h3>PROTFOLIO</h3>
+                    <h3>PROTFOLIO</h3>
+                </div>
+                <div class="copy right">
+                    <h1>디지털 시대, 최고의 디자이너를 꿈꾸는</h1>
+                    <h1><strong>이광원</strong>입니다</h1>
+                </div>
             </div>
-            <div class="copy right">
-                <h1>성장하는 디자이너</h1>
-                <h1><strong>이광원</strong>입니다</h1>
-            </div>
+            <img src="./img/main-banner-img.png" alt="">
         </section>
+
         <article class="copy">
             <div class="visual first"></div>
             <h3>경험하고, 성장하고, 적용합니다.</h3>
@@ -116,9 +118,103 @@
                 </div>
             </div>
         </section>
+        <section class="main-section" id="booklink">
+            <div class="header">
+                <h2>UI/UX - 북링크</h2>
+            </div>
+            <div class="section container">
+                <div class="contents-wrap">
+                    <div class="img-slider">
+                        <div id="prevBtn" class="prev slideBtn"></div>
+                        <div id="nextBtn" class="next slideBtn"></div>
+                        <div class="slide">
+                            <img src="./work/booklink1.png" alt="">
+                        </div>
+                        <div class="slide">
+                            <img src="./work/checker2.png" alt="">
+                        </div>
+                        <div class="slide">
+                            <img src="./work/checker3.png" alt="">
+                        </div>
+                    </div>
+                    <div class="text-area">
+                        <div class="section-body">
+                            <h3>북링크 - 독서 기록부터 도서 대여까지!
+                            </h3>
+                            <p>독서는 그 자체만으로도 유익합니다. 그래서 우리나라 국민들은 독서의 필요성에 대해서 높이 평가합니다. 하지만 이와 반대로 독서율은 점점 낮아지고 있습니다.
+                                이러한 현상에 대해 “독자 개발 연 보고서”에서는 청소년 시절의 학습용 독서가 부정적인 경험으로 남아 책 자체에 관심이 없어진 것을 중요한 원인으로
+                                꼽았습니다. 북링크는 이러한 원인들을 중심으로 즐거운 독서 경험을 만들어나가고자 합니다. 북링크는 나만의 책방을 만들어 독서를 기록하고 공유할 수 있으며,
+                                커뮤니티를 통해 더욱 쉽게 독서 모임을 만들거나 찾아볼 수 있습니다. 또한 내가 가지고 있는 책을 대여해주는 도서 대여 서비스를 통해 보상을 얻을 수
+                                있습니다.</p>
+                            <div class="moreBtn">
+                                <a href="#">자세히 보러가기</a>
+                            </div>
+                        </div>
+                        <div class="section-body">
+                            <h4>Use Tool</h4>
+                            <div class="use-tools">
+                                <img src="./icons/figma.png" alt="figma">
+                                <img src="./icons/ai.png" alt="figma">
+                                <img src="./icons/ps.png" alt="figma">
+                            </div>
+                        </div>
+
+                        <div class="shortCut">
+                            <a href="#">프로토타입 바로가기</a>
+                            <a href="#">홈페이지 바로가기</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
         <section class="main-section" id="checker">
             <div class="header">
-                <h2>UI/UX 디자인 - 체커</h2>
+                <h2>UI/UX - 북링크</h2>
+            </div>
+            <div class="section container">
+                <div class="contents-wrap">
+                    <div class="img-slider">
+                        <div id="prevBtn" class="prev slideBtn"></div>
+                        <div id="nextBtn" class="next slideBtn"></div>
+                        <div class="slide">
+                            <img src="./work/checker1.png" alt="">
+                        </div>
+                        <div class="slide">
+                            <img src="./work/checker2.png" alt="">
+                        </div>
+                        <div class="slide">
+                            <img src="./work/checker3.png" alt="">
+                        </div>
+                    </div>
+                    <div class="text-area">
+                        <div class="section-body">
+                            <h3>체커 - 손쉬운 흡연관리 서비스</h3>
+                            <p>체커는 이러쿵 저러쿵 솰라솰라 미미마마모모체커는 이러쿵 저러쿵 솰라솰라 미미마마모모체커는 이러쿵 저러쿵 솰라솰라 미미마마모모체커는 이러쿵 저러쿵 솰라솰라
+                                미미마마모모체커는 이러쿵 저러쿵 솰라솰라 미미마마모모체커는 이러쿵 저러쿵 솰라솰라 미미마마모모체커는 이러쿵 저러쿵 솰라솰라 미미마마모모체커는 이러쿵 저러쿵
+                                솰라솰라 미미마마모모체커는
+                                이러쿵 저러쿵 솰라솰라 미미마마모모체커는 이러쿵 저러쿵 솰라솰라 미미마마모모체커는 이러쿵 저러쿵 솰라솰라 미미마마모모체커는 이러쿵 저러쿵 솰라솰라
+                                미미마마모모체커는 이러쿵 저러쿵 솰라솰라 미미마마모모체커는 이러쿵 저러쿵 솰라솰라 미미마마모모체커는
+                                이러쿵 저러쿵 솰라솰라 미미마마모모체커는 이러쿵 저러쿵 솰라솰라 미미마마모모체커는 이러쿵 저러쿵 솰라솰라 미미마마모모체커는 이러쿵 저러쿵 솰라솰라
+                                미미마마모모체커는 이러쿵 저러쿵 솰라솰라 미미마마모모체커는 이러쿵 저러쿵 솰라솰라 미미마마모모체커는 이러쿵 저러쿵 솰라솰라 미미마마모모</p>
+                        </div>
+                        <div class="moreBtn">
+                            <a href="#">자세히 보러가기</a>
+                        </div>
+                        <div class="shortCut">
+                            <a href="#">프로토타입 바로가기</a>
+                            <a href="#">홈페이지 바로가기</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!--메인섹션 이전 코드
+        <section class="main-section" id="webex">
+            <div class="header">
+                <h2>UI/UX - 체커</h2>
             </div>
             <div class="section container">
                 <div class="main-img">
@@ -131,10 +227,8 @@
                             <p>체커는 이러쿵 저러쿵 솰라솰라 미미마마모모체커는 이러쿵 저러쿵 솰라솰라 미미마마모모체커는 이러쿵 저러쿵 솰라솰라 미미마마모모체커는 이러쿵 저러쿵 솰라솰라
                                 미미마마모모체커는 이러쿵 저러쿵 솰라솰라 미미마마모모체커는 이러쿵 저러쿵 솰라솰라 미미마마모모체커는 이러쿵 저러쿵 솰라솰라 미미마마모모체커는 이러쿵 저러쿵
                                 솰라솰라 미미마마모모체커는
-
                                 이러쿵 저러쿵 솰라솰라 미미마마모모체커는 이러쿵 저러쿵 솰라솰라 미미마마모모체커는 이러쿵 저러쿵 솰라솰라 미미마마모모체커는 이러쿵 저러쿵 솰라솰라
                                 미미마마모모체커는 이러쿵 저러쿵 솰라솰라 미미마마모모체커는 이러쿵 저러쿵 솰라솰라 미미마마모모체커는
-
                                 이러쿵 저러쿵 솰라솰라 미미마마모모체커는 이러쿵 저러쿵 솰라솰라 미미마마모모체커는 이러쿵 저러쿵 솰라솰라 미미마마모모체커는 이러쿵 저러쿵 솰라솰라
                                 미미마마모모체커는 이러쿵 저러쿵 솰라솰라 미미마마모모체커는 이러쿵 저러쿵 솰라솰라 미미마마모모체커는 이러쿵 저러쿵 솰라솰라 미미마마모모</p>
                         </div>
@@ -146,12 +240,92 @@
                             <a href="#">홈페이지 바로가기</a>
                         </div>
                     </div>
-                    <img src="./app-imgs/340shots_so.png" alt="">
+                    <div class="img-slider">
+                        <div class="slide">
+                            <img src="./app-imgs/slide1.png" alt="">
+                        </div>
+                        <div class="slide">
+                            <img src="./app-imgs/slide2.png" alt="">
+                        </div>
+                        <div class="slide">
+                            <img src="./app-imgs/slide3.png" alt="">
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
-    </main>
+        -->
+        <section class="sub-section" id="">
+            <div class="header">
+                <h2>Branding</h2>
+            </div>
+            <div class="contents-wrap">
+                <a href="#">
+                    <img src="./img/home_3d.png" alt="">
+                </a>
+                <a href="#">
+                    <img src="./img/home_3d.png" alt="">
+                </a>
+                <a href="#">
+                    <img src="./img/home_3d.png" alt="">
+                </a>
+                <a href="#">
+                    <img src="./img/home_3d.png" alt="">
+                </a>
+                <a href="#">
+                    <img src="./img/home_3d.png" alt="">
+                </a>
+                <a href="#">
+                    <img src="./img/home_3d.png" alt="">
+                </a>
+            </div>
+        </section>
+        <section class="sub-section" id="">
+            <div class="header">
+                <h2>Interactive Graphics</h2>
+            </div>
+            <div class="contents-wrap">
 
+                <lottie-player class="lottie" src="./lottie/ui1.json" background="transparent" speed="1" loop
+                    autoplay></lottie-player>
+
+                <lottie-player class="lottie" src="./lottie/ui2.json" background="transparent" speed="1" loop
+                    autoplay></lottie-player>
+
+                <lottie-player class="lottie" src="./lottie/ui3.json" background="transparent" speed="1" loop
+                    autoplay></lottie-player>
+
+                <lottie-player class="lottie" src="./lottie/ui4.json" background="transparent" speed="1" loop
+                    autoplay></lottie-player>
+
+                <lottie-player class="lottie" src="./lottie/ui5.json" background="transparent" speed="1" loop
+                    autoplay></lottie-player>
+
+                <lottie-player class="lottie" src="./lottie/ui6.json" background="transparent" speed="1" loop
+                    autoplay></lottie-player>
+
+                <lottie-player class="lottie" src="./lottie/ux1.json" background="transparent" speed="1" loop
+                    autoplay></lottie-player>
+
+                <lottie-player class="lottie" src="./lottie/ux2.json" background="transparent" speed="1" loop
+                    autoplay></lottie-player>
+
+                <lottie-player class="lottie" src="./lottie/ux3.json" background="transparent" speed="1" loop
+                    autoplay></lottie-player>
+
+                <lottie-player class="lottie" src="./lottie/ux4.json" background="transparent" speed="1" loop
+                    autoplay></lottie-player>
+
+                <lottie-player class="lottie" src="./lottie/ux5.json" background="transparent" speed="1" loop
+                    autoplay></lottie-player>
+
+
+                <lottie-player class="lottie" src="./lottie/ux6.json" background="transparent" speed="1" loop
+                    autoplay></lottie-player>
+            </div>
+        </section>
+    </main>
+    <script src="./index.js"></script>
 </body>
 
 </html>
