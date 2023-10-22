@@ -28,6 +28,7 @@
     --super-dark-blue: #000013;
     --card-line-gradation: linear-gradient(to top right, #a9fef700, #a9fef700, #a9fef720, #a9fef740, #a9fef7, #a9fef7, #a9fef7, #a9fef7, #a9fef740, #a9fef720, #a9fef700, #a9fef700) 1;
     --card-line-gradation-reverse: linear-gradient(to top, #a9fef7, #a9fef700, #a9fef720, #a9fef740, #a9fef700, #a9fef700, #a9fef700, #a9fef700, #a9fef740, #a9fef720, #a9fef700, #a9fef7) 1;
+    --box-line-gradation: linear-gradient(to top right, #8ED2E8, #8ED2E820, #8ED2E840, #8ED2E810, #8ED2E840, #8ED2E8) 1;
 }
 
 html {
@@ -126,6 +127,11 @@ h3 {
     line-height: normal;
 }
 
+span.title-text {
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
 p {
     font-size: 1rem;
     font-style: normal;
@@ -151,7 +157,7 @@ nav {
     min-width: 90rem;
     display: flex;
     justify-content: center;
-
+    z-index: 99;
     background: rgba(0, 0, 19, 0.60);
     backdrop-filter: blur(12px);
 
@@ -191,6 +197,45 @@ nav {
     font-size: 1.5rem;
 }
 
+.nav-link svg:nth-child(n+0) {
+    fill: white;
+
+}
+
+.nav-link svg:hover {
+    animation: logoanimation 2.5s cubic-bezier(0.19, 1, 0.22, 1) infinite;
+
+    position: relative;
+}
+
+.nav-link svg:hover :nth-child(n+0) {
+    fill: var(--primary-lightblue);
+}
+
+@keyframes logoanimation {
+    0% {
+        scale: 1;
+    }
+
+    20% {
+        scale: 0.8;
+        transform: rotate(90deg);
+    }
+
+    50% {
+        transform: rotate(180deg);
+    }
+
+    80% {
+        scale: 0.8;
+        transform: rotate(270deg);
+    }
+
+    100% {
+        scale: 1;
+        transform: rotate(360deg);
+    }
+}
 
 
 .nav-mobile {
@@ -229,7 +274,6 @@ nav {
 }
 
 #main-banner .titleEffect h3 {
-
     color: #FFF;
     font-family: Sportive;
     font-size: 4.5rem;
@@ -243,6 +287,8 @@ nav {
     color: rgba(169, 254, 247, 0.40);
     filter: blur(6px);
     z-index: -1;
+    animation: blurAnimation 3s ease-in-out infinite;
+
 }
 
 #main-banner .titleEffect h3:nth-child(3) {
@@ -250,6 +296,50 @@ nav {
     color: rgba(255, 255, 255, 0.40);
     filter: blur(6px);
     z-index: -1;
+    animation: blurAnimation 3s ease-in-out infinite;
+}
+
+@keyframes blurAnimation {
+    0% {
+        filter: blur(6px);
+    }
+
+    58% {
+        filter: blur(6px);
+    }
+
+    62% {
+        filter: blur(12px);
+    }
+
+    64% {
+        filter: blur(6px);
+    }
+
+    66% {
+        filter: blur(8px);
+    }
+
+    68% {
+        filter: blur(6px);
+    }
+
+
+    74% {
+        filter: blur(6px);
+    }
+
+    76% {
+        filter: blur(16px);
+    }
+
+    80% {
+        filter: blur(6px);
+    }
+
+    100% {
+        filter: blur(6px);
+    }
 }
 
 #main-banner .banner-text {
@@ -302,7 +392,7 @@ nav {
 }
 
 .copy .first {
-    background: url(./img/visual-1.png), #1E1E1E 50% / cover no-repeat;
+    background: url(#);
 }
 
 .copy .second {
@@ -330,28 +420,195 @@ section .header a {
 }
 
 .contents.container {
+    width: 88rem;
     display: flex;
     gap: 1rem;
     padding: 0rem 1rem;
 }
 
-.contents .ex-component {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
+#introduce .margin-top {
+    margin-top: 2.25rem;
 }
 
-.contents .ex-component ul {
+#introduce .skills {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+    flex: 1 0 0;
+    align-self: stretch;
+}
+
+#introduce .skills .skills-group {
+    display: flex;
+    width: 30rem;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    flex: 1 0 0;
+}
+
+#introduce .skills .skills-text {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-self: stretch;
+}
+
+#introduce .tools {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    align-self: stretch;
+}
+
+#introduce .tools img {
+    transition: 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+#introduce .tools img:hover {
+    transform: rotateY(360deg);
+    scale: 1.5;
+    position: relative;
+}
+
+#introduce .tools img {
+    width: 2.25rem;
+    height: 2.25rem;
+}
+
+
+#introduce .profile-box .text {
+    display: flex;
+    padding: 0.75rem 1.5rem 0.75rem 0rem;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex: 1 0 0;
+    align-self: stretch;
+}
+
+#introduce .profile {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+
+    border-style: inset;
+    border-image: var(--box-line-gradation);
+    background: rgba(0, 0, 19, 0.05);
+    backdrop-filter: blur(2px);
+}
+
+#introduce .profile.intro {
+    position: relative;
+    display: flex;
+    width: 57rem;
+    height: 11.625rem;
+    justify-content: center;
+    align-items: center;
+}
+
+#introduce .profile.intro .intro-text {
+    width: 37.5rem;
+    height: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#introduce .profile.intro .intro-text h3:first-child {
+    font-weight: 400;
+}
+
+#introduce .profile.intro .intro-text h3:last-child {
+    text-align: end;
+}
+
+#introduce .intro-box .experience {
+    display: flex;
+    gap: 1rem;
+}
+
+.ex-title {
+    display: flex;
+    align-items: center;
     gap: 0.5rem;
 }
 
-.contents .ex-component img {
+#introduce .intro-box .experience .leadership {
+    display: flex;
     width: 21.25rem;
-    height: 10rem;
-    border-radius: 0.5rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
 }
+
+#introduce .intro-box .experience .study {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 34.75rem;
+    gap: 0.5rem;
+    flex: 1 0 0;
+    align-self: stretch;
+}
+
+#introduce .intro-box .experience .ex-text {
+    display: flex;
+    padding-left: 0px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    align-self: stretch;
+}
+
+#introduce .intro-box .experience .ex-text {
+    padding-left: 1.88rem;
+}
+
+#introduce .intro-box .experience .study .ex-text {
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+#introduce .intro-box .experience .study .ex-text .text-date {
+    display: flex;
+    width: 16.0625rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+}
+
+.angle {
+    display: flex;
+    position: absolute;
+}
+
+.angle.top-left {
+    top: 0;
+    left: 0;
+}
+
+.angle.bottom-right {
+    bottom: 0;
+    right: 0;
+}
+
+#introduce .profile-box .profile #introduce .profile-box .text .info-box {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+}
+
+
+#introduce .profile-box .text .info-box .info {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
 
 .main-section .slide img {
     border: 1px solid transparent;
@@ -470,11 +727,23 @@ section .header a {
     position: relative;
 }
 
+.img-slider .slider-container {
+    display: flex;
+    width: 43.5rem;
+    height: 31.3125rem;
+    transition: 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
 .main-section .contents-wrap .img-slider .slideBtn {
     width: 2.25rem;
     height: 2.25rem;
     position: absolute;
+    z-index: 3;
+    transition: 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+}
 
+.main-section .contents-wrap .img-slider .slideBtn:hover {
+    scale: 1.5;
 }
 
 .main-section .contents-wrap .img-slider .prev {
@@ -497,6 +766,14 @@ section .header a {
     align-content: flex-start;
     gap: 1rem;
     flex-wrap: wrap;
+}
+
+.sub-section .header {
+    padding: 0;
+}
+
+.sub-section img {
+    object-fit: cover;
 }
 
 .sub-section .contents-wrap a img {
@@ -532,6 +809,11 @@ section .header a {
         font-style: normal;
         font-weight: 700;
         line-height: normal;
+    }
+
+    span.title-text {
+        font-size: 1rem;
+        font-weight: 400;
     }
 
     p {

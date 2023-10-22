@@ -91,3 +91,39 @@ function drawLine() {
     }
 }
 
+document.addEventListener('DOMContentLoaded', function () {
+    // 슬라이더 스크립트 함수
+    function setupSlider(sliderClass) {
+        const slider = document.querySelector(`.${sliderClass}`);
+        const slideContainer = slider.querySelector('.slider-container');
+        const slides = slideContainer.querySelectorAll('.slide'); // 슬라이드 요소들을 가져옴
+        let currentIndex = 0;
+
+        function showSlide(index) {
+            slideContainer.style.transform = `translateX(-${index * 100}%)`; // 슬라이드 너비 조정
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % slides.length;
+            showSlide(currentIndex);
+        }
+
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+            showSlide(currentIndex);
+        }
+
+        // 다음 버튼 클릭 시
+        slider.querySelector(`#nextBtn${sliderClass}`).addEventListener('click', nextSlide);
+
+        // 이전 버튼 클릭 시
+        slider.querySelector(`#prevBtn${sliderClass}`).addEventListener('click', prevSlide);
+
+        // 초기 슬라이드 표시
+        showSlide(currentIndex);
+    }
+
+    // 슬라이더 설정 - 각 슬라이더에 해당 클래스 이름 적용
+    setupSlider('slider1');
+    setupSlider('slider2');
+});
