@@ -35,17 +35,25 @@ var points = [];
 $(window).on('mousemove', function (e) {
     pointer.x = e.clientX;
     pointer.y = e.clientY;
-    debounce_counter = 0;
-    drawLine();
+    if (window.innerWidth > 488) { // 체크 너비가 488px 초과인 경우에만 이펙트 활성화
+        debounce_counter = 0;
+        drawLine();
+    }
+    else {
+        // 너비가 488px 이하인 경우 마우스 커서를 따라다니는 효과 없애기
+        polyline.setAttribute('points', '');
+        circle.setAttribute('cx', '');
+        circle.setAttribute('cy', '');
+        circle.setAttribute('r', '');
+    }
 
     // debounce
     clearTimeout(debounce_removeLine);
     debounce_removeLine = setTimeout(() => {
-        //console.log('debounce_removeLine', new Date().getTime());
         debounce_counter = 12;
         drawLine();
     }, 80);
-})
+});
 
 $(window).on('mousedown', function (e) {
     pointer.circRadius = 6;
@@ -58,6 +66,10 @@ $(window).on('mouseup', function (e) {
 });
 
 function drawLine() {
+    if (window.innerWidth <= 488) {
+        return; // 너비가 488px 이하인 경우에는 이펙트를 실행하지 않음
+    }
+
     pointer.updateCrds();
 
     points.push({
@@ -90,6 +102,17 @@ function drawLine() {
         requestAnimationFrame(drawLine);
     }
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+    const menuBtn = document.querySelector(".menuBtn");
+    const navMobile = document.querySelector(".nav-mobile");
+
+    menuBtn.addEventListener("click", function () {
+        navMobile.classList.toggle("active");
+    });
+});
+
+
 
 document.addEventListener('DOMContentLoaded', function () {
     // 슬라이더 스크립트 함수

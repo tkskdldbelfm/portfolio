@@ -843,7 +843,18 @@ section .header a {
 
     .container,
     main {
-        width: 20rem;
+        width: 100%;
+        overflow: hidden;
+    }
+
+    main {
+        gap: 3.75rem;
+    }
+
+    .mobile-nav {
+        position: fixed;
+        right: 0;
+        z-index: 1;
     }
 
     .menuBtn {
@@ -860,6 +871,7 @@ section .header a {
     }
 
     .nav-mobile {
+        position: fixed;
         display: flex;
         flex-direction: column;
 
@@ -874,14 +886,22 @@ section .header a {
 
         border-radius: 1.5rem 0rem 0rem 1.5rem;
         background: #353535;
+
+        transition: 0.3s ease-in-out;
     }
 
     .nav-mobile.active {
         right: 0rem;
+
+
+    }
+
+    .nav-mobile.active .menu-slider {
+        display: flex;
     }
 
     .nav-mobile .menu-slider {
-        display: flex;
+        display: none;
         width: 16.625rem;
 
         flex-direction: column;
@@ -899,22 +919,45 @@ section .header a {
         line-height: normal;
     }
 
-    #main-banner .copy.left {
-        display: flex;
-        width: 22.5rem;
-        height: 50rem;
-        padding: 0rem 1rem 3.75rem 1rem;
-        flex-direction: column;
-        justify-content: flex-end;
-        align-items: flex-start;
-        gap: 0.5rem;
+    #main-banner img {
+        object-fit: cover;
     }
 
-    #main-banner .left h3 {
+    #main-banner .titleEffect {
+        width: 25.25rem;
+        height: 5.375rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+
+    #main-banner .titleEffect h3 {
+        color: #FFF;
+        font-family: Sportive;
+        font-size: 3rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+
+    #main-banner .right h1 {
         font-size: 1rem;
     }
 
-    #main-banner .left p {
-        font-size: 0.75rem;
+
+    #drawing_line {
+        display: none;
+
     }
+
+    #drawing_line>svg {
+        display: none;
+    }
+
+    #drawing_line>svg .drawing_line_polyline {
+        display: none;
+    }
+
+
 }
