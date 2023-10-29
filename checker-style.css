@@ -1,3 +1,7 @@
+html {
+    font-size: calc(100vw / 123.8);
+}
+
 body {
     font-family: Noto sans KR;
     color: #000;
@@ -111,6 +115,8 @@ nav .nav-container .nav-logo {
 }
 
 .bg-appimg {
+    width: 80rem;
+    height: 60.0625rem;
     position: absolute;
     right: 0;
     top: 8rem;
@@ -153,6 +159,11 @@ nav .nav-container .nav-logo {
     gap: 0.5rem;
 }
 
+.main-banner .contents-area h1 {
+    font-size: 3.5rem;
+    color: #fff;
+}
+
 .text-area p {
     color: #fff;
     font-family: Noto Sans KR;
@@ -163,24 +174,43 @@ nav .nav-container .nav-logo {
 }
 
 .app-info .app-img {
+    display: flex;
+    width: 37.5rem;
+    height: 27.9375rem;
+    position: relative;
+}
+
+.app-info .app-img img {
     width: 37.5rem;
     height: 27.9375rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
+
 }
 
 .app-info .app-img img:nth-child(2) {
+    width: 6.375rem;
+    height: 6.375rem;
+
     right: 0;
     bottom: 0;
     position: absolute;
+
+    border-radius: 1rem;
 }
 
 .app-info .download {
     margin-top: 1.5rem;
     display: flex;
     gap: 1.5rem;
+}
+
+.app-info .download img {
+
+    width: 17.75769rem;
+    height: 5.08038rem;
+
 }
 
 main {
@@ -210,6 +240,36 @@ section h2 {
 
 }
 
+#service .card-container {
+    width: 92rem;
+    display: flex;
+    align-items: center;
+}
+
+
+#service .slideBtn {
+    width: 3.25rem;
+    height: 3.25rem;
+    position: absolute;
+    z-index: 3;
+    transition: 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+#service .slideBtn:hover {
+    scale: 1.5;
+}
+
+#service .prev {
+    background: url(./icons/left-outline.svg) no-repeat;
+    left: 4rem;
+}
+
+#service .next {
+    background: url(./icons/right-outline.svg) no-repeat;
+    right: 4rem;
+}
+
+
 /*service card-component*/
 #service .card-component {
     display: flex;
@@ -218,10 +278,25 @@ section h2 {
     padding: 1.5rem 1.5rem;
     align-items: center;
     width: 26.6875rem;
+    height: 42.75rem;
 
     border-radius: 2.25rem;
     background: #424B19;
     box-shadow: 0px 0px 24px 0px rgba(0, 0, 0, 0.50);
+
+    opacity: 1;
+    transition: 0.3s ease-out;
+}
+
+#service .card-component.active {
+    opacity: 1;
+}
+
+#service .card-component img {
+    width: 26.6875rem;
+    height: 26.6875rem;
+    background-color: #c4c4c4;
+    border-radius: 2.25rem;
 }
 
 #service .card-component h3 {
@@ -246,8 +321,9 @@ section h2 {
 /*card-container*/
 #service .card-slider {
     display: flex;
-
-    gap: 3rem;
+    align-items: center;
+    gap: 1.525rem;
+    transition: 0.3s ease-out;
 }
 
 /*details*/
@@ -262,61 +338,14 @@ section h2 {
 #details .title {
     display: flex;
     align-items: center;
-    padding-left: 2.5rem;
+    margin-bottom: 2.5rem;
 
-    width: 60.9375rem;
+    width: 100%;
     height: 7.5rem;
 
     border-radius: 1.5rem;
-    background: #424B19;
 }
 
-#details .title.main {
-    margin-right: 33.94rem;
-    position: absolute;
-    top: 11.25rem;
-}
-
-#details .title h2 {
-    color: #fff;
-}
-
-#details .background {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 60.75rem;
-
-    gap: 3rem;
-    position: absolute;
-}
-
-#details .background .line {
-    display: flex;
-    flex-direction: row;
-    gap: 3rem;
-}
-
-.background-box.title {
-    opacity: 0;
-}
-
-.background-box.max {
-    width: 60.9375rem;
-    height: 18.75rem;
-    flex-shrink: 0;
-}
-
-.background-box.min {
-    width: 29.375rem;
-    height: 18.75rem;
-    flex-shrink: 0;
-}
-
-.background-box {
-    border-radius: 2.25rem;
-    background: rgba(66, 75, 25, 0.40)
-}
 
 /*details select-option*/
 #details .contents-container {
@@ -461,6 +490,7 @@ article {
     align-items: center;
     justify-content: center;
     position: relative;
+    left: 7rem;
 
     width: 61.5rem;
     height: 27.5rem;
@@ -470,6 +500,10 @@ article {
     border: 4px solid #E6FF81;
     background: #44541B;
     box-shadow: 0px 0px 200px 0px #A3C100 inset, 10px -10px 24px 0px rgba(0, 0, 0, 0.25);
+}
+
+#app-intro .contentsWrap.right {
+    left: -7rem;
 }
 
 #app-intro .contentsWrap .text-area {
@@ -646,14 +680,23 @@ article {
     }
 }
 
-#app-intro .app-intro-container img {
-    position: relative;
-    right: 10rem;
+#app-intro .app-intro-container .icon img {
+    width: 23.39756rem;
+    height: 19.886rem;
 }
 
-#app-intro .app-intro-container img.left {
+#app-intro .app-intro-container .phone {
+    position: relative;
+    right: 6rem;
+    width: 105.5625rem;
+    height: 79.1875rem;
+}
+
+#app-intro .app-intro-container .phone.left {
     z-index: 1;
-    left: 10rem;
+    left: 6rem;
+    width: 105.5625rem;
+    height: 79.1875rem;
 }
 
 
@@ -691,6 +734,8 @@ article {
     z-index: -2;
     position: absolute;
     right: 50rem;
+    width: 85.625rem;
+    height: 68.25rem;
 }
 
 #login-now .textarea h2 {
@@ -769,6 +814,7 @@ article {
     position: relative;
     top: -16rem;
     height: 60rem;
+    transition: 3s ease-in-out;
 }
 
 

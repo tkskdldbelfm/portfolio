@@ -4,23 +4,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
             {
                 video: '<iframe width="560" height="315" src="https://www.youtube.com/embed/VcQlFKa5wQA?si=JnCGjPGIs4SbkC6n" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>',
-                title: '공략은 구루루',
-                description: '금연 프로그램 1에 참여하여 더 쉽게 금연에 도전해 보세요.',
+                title: '흡연 기록',
+                description: '흡연 할 때 마다 터치 한번이면 됩니다. 체커에서 흡연을 기록해 보세요. 흡연을 기록하시면 체커에서 흡연 습관을 분석하여 개인 맞춤 데이터를 제공합니다.',
             },
             {
-                title: '금연 지원 2',
-                description: '금연 프로그램 2에 참여하여 더 쉽게 금연에 도전해 보세요.',
-            },
-            {
-                title: '금연 지원 2',
-                description: '금연 프로그램 2에 참여하여 더 쉽게 금연에 도전해 보세요.',
+                title: '금연 지원',
+                description: '여러분이 실제로 지원받을 수 있는 금연 프로그램들을 제공합니다. 금연 지원 프로그램에 참여하여 더 쉽게 금연에 도전해 보세요.',
             }
         ],
         [
             {
                 video: '<iframe width="560" height="315" src="https://www.youtube.com/embed/06bQPPjnw1g?si=RpkPGV9Q6BnsJmBz" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>',
-                title: '엔진은 어떻게 작동할까?',
-                description: '금연 프로그램 3에 참여하여 더 쉽게 금연에 도전해 보세요.',
+                title: '흡연습관 분석',
+                description: '개인이 직접 기록한 흡연을 분석하여 제공합니다. 매 흡연마다 단 한번의 클릭으로 흡연 패턴, 흡연량, 흡연 습관, 건강상태 등을 확인할 수 있습니다.',
             },
             {
                 title: '금연 지원 4',
@@ -78,11 +74,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         ]
     ];
-
     // HTML 요소들을 가져옵니다.
     const options = document.querySelectorAll('.select-option .option');
     const textArea = document.querySelector('.select-contents .text-area');
-    const video = document.querySelector('.select-contents .video');
+    const videoContainer = document.querySelector('.select-contents');
+    const video = document.querySelector('.video');
 
     // 각 옵션에 클릭 이벤트를 추가합니다.
     options.forEach((option, index) => {
@@ -97,14 +93,11 @@ document.addEventListener('DOMContentLoaded', () => {
             const selectedData = Data[index];
 
             textArea.innerHTML = '';
+
+            // video 요소 초기화
             video.innerHTML = '';
 
-
-            // 각 묶음의 title과 description을 생성합니다.
             selectedData.forEach((item) => {
-
-                video.innerHTML = item.video;
-
                 const h2 = document.createElement("h2");
                 h2.textContent = item.title;
 
@@ -113,9 +106,61 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 textArea.appendChild(h2);
                 textArea.appendChild(p);
-                video.appendChild(video);
+
+                if (item.video) {
+                    // video를 videoContainer에 추가
+                    video.innerHTML = item.video;
+                }
             });
         });
     });
+
+
+    const cardSlider = document.querySelector('.card-slider');
+    const prevBtn = document.getElementById('prevBtnslider1');
+    const nextBtn = document.getElementById('nextBtnslider1');
+
+    let currentIndex = 0;
+    const cardWidth = document.querySelector('.card-component').offsetWidth;
+
+    nextBtn.addEventListener('click', () => {
+        if (currentIndex < cardSlider.children.length - 3) {
+            currentIndex++;
+            cardSlider.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+        }
+    });
+
+    prevBtn.addEventListener('click', () => {
+        if (currentIndex > 0) {
+            currentIndex--;
+            cardSlider.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+        }
+    });
+
+
+
 });
 
+const screenSlider = document.querySelector('.screen-slider');
+const sliderImages = document.querySelectorAll('.screen-slider img');
+
+let currentIndex = 0;
+const slideWidth = sliderImages[0].offsetWidth;
+
+// Intersection Observer 설정
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            slideLeft();
+        }
+    });
+});
+
+observer.observe(screenSlider);
+
+function slideLeft() {
+    if (currentIndex < sliderImages.length - 1) {
+        currentIndex++;
+        screenSlider.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+    }
+}

@@ -149,4 +149,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // 슬라이더 설정 - 각 슬라이더에 해당 클래스 이름 적용
     setupSlider('slider1');
     setupSlider('slider2');
+    setupSlider('slider3');
+    setupSlider('slider4');
+    setupSlider('slider5');
 });

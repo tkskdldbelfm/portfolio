@@ -5,7 +5,10 @@
     cursor: url(./img/cursor_5.svg) 8.5 8.5, auto;
 }
 
-
+html {
+    font-size: 16px;
+    font-display: block;
+}
 
 
 @keyframes cursorAnimation {
@@ -449,6 +452,10 @@ section .header a {
     flex: 1 0 0;
 }
 
+#introduce .skills .skills-group svg {
+    width: 30.375rem;
+}
+
 #introduce .skills .skills-text {
     display: flex;
     justify-content: space-between;
@@ -595,7 +602,12 @@ section .header a {
     right: 0;
 }
 
-#introduce .profile-box .profile #introduce .profile-box .text .info-box {
+#introduce .profile-box .profile .profile-img {
+    width: 11.625rem;
+    height: 11.625rem;
+}
+
+#introduce .profile-box .text .info-box {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
