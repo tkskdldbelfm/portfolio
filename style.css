@@ -747,8 +747,8 @@ section .header a {
 }
 
 .main-section .contents-wrap .img-slider .slideBtn {
-    width: 2.25rem;
-    height: 2.25rem;
+    width: 3.25rem;
+    height: 3.25rem;
     position: absolute;
     z-index: 3;
     transition: 0.3s cubic-bezier(0.19, 1, 0.22, 1);
