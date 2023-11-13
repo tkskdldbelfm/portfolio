@@ -4,12 +4,12 @@ window.addEventListener("load", () => {
     const header = document.querySelector("nav");
 
     // 이전 스크롤 위치 저장
-    let prevScrollPos = window.pageYOffset;
+    let prevScrollPos = window.scrollY;
 
     // 스크롤 이벤트 리스너 등록
     window.addEventListener("scroll", () => {
         // 현재 스크롤 위치 가져오기
-        const currentScrollPos = window.pageYOffset;
+        const currentScrollPos = window.scrollY;
 
         // 스크롤 방향 계산
         if (prevScrollPos > currentScrollPos) {
@@ -25,8 +25,6 @@ window.addEventListener("load", () => {
     });
 
 });
-
-
 
 
 var polyline = document.querySelector('.drawing_line_polyline');
@@ -150,11 +148,16 @@ document.addEventListener('DOMContentLoaded', function () {
     function setupSlider(sliderClass) {
         const slider = document.querySelector(`.${sliderClass}`);
         const slideContainer = slider.querySelector('.slider-container');
+        const slideContentsWrap = slider.parentElement;
         const slides = slideContainer.querySelectorAll('.slide'); // 슬라이드 요소들을 가져옴
+        const header = document.querySelector("nav");
+
         let currentIndex = 0;
 
         function showSlide(index) {
             slideContainer.style.transform = `translateX(-${index * 100}%)`; // 슬라이드 너비 조정
+            slideContentsWrap.scrollIntoView({ behavior: 'smooth' });
+            header.style.opacity = "0";
         }
 
         function nextSlide() {

@@ -1,5 +1,6 @@
 html {
     font-size: calc(100vw / 123.8);
+    font-display: block;
 }
 
 body {

@@ -665,6 +665,8 @@ section .header a {
     align-items: flex-start;
     width: 100%;
     gap: 1.5rem;
+
+    padding-top: 1rem;
 }
 
 .main-section .section .img-slider {
@@ -749,9 +751,11 @@ section .header a {
     align-items: center;
 
     position: relative;
+
 }
 
 .img-slider .slider-container {
+
     display: flex;
     width: 88rem;
     height: 58rem;
@@ -779,7 +783,6 @@ section .header a {
     background: url(./icons/right-outline.svg) no-repeat;
     right: 0;
 }
-
 
 
 
@@ -916,8 +919,6 @@ section .header a {
 
     .nav-mobile.active {
         right: 0rem;
-
-
     }
 
     .nav-mobile.active .menu-slider {
@@ -982,6 +983,32 @@ section .header a {
     #drawing_line>svg .drawing_line_polyline {
         display: none;
     }
+
+
+    .main-section .section {
+        display: flex;
+        width: 100vw;
+        align-items: stretch;
+        align-content: flex-start;
+        gap: 1rem;
+        flex-wrap: wrap;
+        padding: 0 1rem;
+    }
+
+    .main-section .section .slide {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: calc(100vw);
+        height: auto;
+    }
+
+    .main-section .section .slide img {
+        width: calc(100vw);
+        height: auto;
+        object-fit: contain;
+    }
+
 
 
 }
