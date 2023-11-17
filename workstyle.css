@@ -1,0 +1,111 @@
+#main-banner.container {
+    position: fixed;
+    z-index: -1;
+}
+
+#main-banner .banner-text {
+    height: 25%;
+}
+
+.main-section .contents-wrap .text-area {
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.main-section .contents-wrap .text-area .section-foot {
+    width: 74%;
+}
+
+main {
+    width: 100%;
+    margin-top: 36rem;
+    padding-top: 3rem;
+    background-color: var(--super-dark-blue);
+    box-shadow: 0px 0px 1.5rem 0px rgba(255, 255, 255, 0.25);
+    min-height: 100vh;
+}
+
+main.details {
+    margin-top: 16rem;
+}
+
+section p {
+    text-align: justify;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-transform: capitalize;
+}
+
+.main-section .contents-wrap .text-area .section-body2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    gap: 3rem;
+    margin-bottom: 3rem;
+}
+
+.section-body2 aside {
+    position: sticky;
+    top: 0rem;
+    height: 20rem;
+    padding-top: 6rem;
+}
+
+.section-body2 .body-text {
+    width: 74%;
+
+}
+
+aside ul {
+    width: 20rem;
+}
+
+.section-body2 aside .aside-title {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #707070;
+    cursor: pointer;
+    transition: 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.section-body2 aside .aside-title:hover {
+    color: var(--primary-lightblue);
+}
+
+.section-body2 aside .aside-title.active {
+    color: #fff;
+    font-weight: 700;
+}
+
+.experience,
+.planning {
+    display: none;
+    flex-direction: column;
+    gap: 3rem;
+    padding-top: 6rem;
+}
+
+.experience.active,
+.planning.active {
+    display: flex;
+}
+
+
+.Paragraph {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.Paragraph ul,
+.Paragraph li {
+    margin-bottom: 1.25rem;
+    list-style-position: inside;
+    list-style-type: disc;
+    font-size: 1.25rem;
+}

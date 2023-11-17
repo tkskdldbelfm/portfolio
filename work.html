@@ -4,157 +4,111 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>웹 프로젝트 졸업전시</title>
+    <title>이광원 디자이너 포트폴리오</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="font-family.css" />
-    <script src="./js/header.js"></script>
-    <script src="./js/pagesize.js"></script>
+    <link rel="stylesheet" href="workstyle.css">
+    <script src="./pagesize.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 
 </head>
 
 <body>
-    <header>
-        <div class="header_container">
-            <div class="button">
-                <a href="index2.html" class="header_btn">홈</a>
-                <a href="./comment/comment.html" class="header_btn">방명록</a>
-                <a href="search.html" class="header_btn active">프로필</a>
-                <div class="search">
-                    <form id="searchProfile" class="searchBox">
-                        <input type="text" name="username" autocomplete="off" id="searchInput" autocomplete="off"
-                            placeholder="프로필 검색" />
-                        <button id="searchButton">
-                            <img src="./icons/search-stroke.svg" alt="search-stroke" />
-                        </button>
-                    </form>
-                    <div id="searchResults" class="autocompleteResults"></div>
-                </div>
+    <div id="drawing_line">
+        <svg class="drawing_line_svg">
+            <circle class="drawing_line_circle" cx="0" cy="0" r="8"></circle>
+            <polyline class="drawing_line_polyline" points=""></polyline>
+        </svg>
+    </div>
+    <nav>
+        <div class="nav container">
+            <div class="nav-anchor">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="work.html" class="nav-link active">Work</a>
+                <a href="#" class="nav-link">About Me</a>
+                <a href="#" class="nav-link">Contact</a>
+                <a href="#" class="nav-link">
+                    <svg width="67" height="41" viewBox="0 0 67 41" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g id="Isolation_Mode" clip-path="url(#clip0_818_439)">
+                            <path id="Vector"
+                                d="M46.7598 20.4863L26.5198 40.7263H67.0098V0.236328H26.5098L46.7498 20.4763L46.7598 20.4863ZM61.9098 4.81633H51.6698L48.7698 1.91633H64.8198V17.9663L61.9198 15.0663V4.81633H61.9098ZM55.1398 11.4063H44.8998L41.9998 8.50633H58.0498V24.5563L55.1498 21.6563V11.4163L55.1398 11.4063Z"
+                                fill="white" />
+                            <path id="Vector_2"
+                                d="M37.5894 20.5464L17.3594 0.316406V7.63641L30.2694 20.5464L17.3594 33.4664V40.7864L37.5894 20.5464Z"
+                                fill="white" />
+                            <path id="Vector_3"
+                                d="M20.7495 20.3257L0.519531 0.0957031V7.4157L13.4295 20.3257L0.519531 33.2457V40.5557L20.7495 20.3257Z"
+                                fill="white" />
+                        </g>
+                        <defs>
+                            <clipPath id="clip0_818_439">
+                                <rect width="66.48" height="40.69" fill="white"
+                                    transform="translate(0.519531 0.0957031)" />
+                            </clipPath>
+                        </defs>
+                    </svg>
+                </a>
             </div>
         </div>
-    </header>
+    </nav>
+
+    <article id="main-banner" class="container">
+        <div class="banner-text">
+            <div class="titleEffect">
+                <h3 translate="no">WORKS</h3>
+                <h3 translate="no">WORKS</h3>
+                <h3 translate="no">WORKS</h3>
+            </div>
+        </div>
+        <img src="./img/main-banner-img.png" alt="">
+    </article>
 
     <main>
-        <section id="worksInfo">
-            <div class="aside">
-                <h2 id="title">Projects</h2>
-                <div class="worksTitleSlider">
-                    <ul id="worksTitle">
-                        <li class="active">체커 - 손쉬운 흡연관리 앱</li>
-                        <li>체커 - 손쉬운 흡연관리 앱</li>
-                        <li>체커 - 손쉬운 흡연관리 앱</li>
-                        <li>체커 - 손쉬운 흡연관리 앱</li>
-                    </ul>
-                    <select name="" id="worksTitleMobile">
-
-                    </select>
-                </div>
+        <section class="sub-section" id="works">
+            <div class="header">
+                <h2>Works Archive</h2>
             </div>
-            <div class="worksBody">
-                <div class="useTools">
-                    <h3>Use Tool</h3>
-                    <div class="tools" id="useTools">
-                        <img src="./icons/figma.png" alt="">
-                        <img src="./icons/ps.png" alt="">
-                        <img src="./icons/xd.png" alt="">
-                        <img src="./icons/ai.png" alt="">
-                    </div>
-                </div>
-                <p id="work_body">work_body</p>
-                <div class="links">
-                    <a href="#">prototypelink</a>
-                    <a href="#">sitelink</a>
-                    <a href="#">sitelink</a>
-                </div>
-                <div class="worksImg">
-                    <img id="workImage" src="#" alt="">
-                </div>
-            </div>
-        </section>
-
-        <section id="commentSection">
-            <h1>응원의 한마디</h1>
-
-            <div class="add-comment">
-                <form id="commentForm">
-                    <label for="tatget_id" id="commentUsername">이광원 님에게 응원의 한마디를 남겨보세요.</label>
-                    <select id="target_id" name="이름">
-                        <!--option value는 불러오는 id값과 같아야함-->
-                        <option id="optionValue"></option>
-                    </select>
-                    <input type="text" id="nickname" autocomplete="off" placeholder="닉네임" required />
-                    <input type="password" id="password" autocomplete="off" placeholder="비밀번호" required />
-
-                    <div class="text_area">
-                        <textarea id="comment" placeholder="댓글을 입력해 주세요." required></textarea>
-                        <button id="commentBtn" type="submit">작성하기</button>
-                    </div>
-                </form>
-            </div>
-
-            <div class="comments">
-                <h2 class="sectionTitle">작성된 응원 목록</h2>
-                <div id="commentsList">
-                    <div class="comment-container">
-                        <ul>
-                            <li>익명의 방문자<samp>2023-08-26T20:43:00.000Z</samp></li>
-                            <button>삭제하기</button>
-                        </ul>
-                        <li>내용입니다.</li>
-                    </div>
-                </div>
+            <div class="contents-wrap">
+                <a href="./booklink_detail.html">
+                    <img src="./work/북링크 표지.webp" alt="">
+                </a>
+                <a href="#">
+                    <img src="./work/이광원_2_thumb.webp" alt="">
+                </a>
+                <a href="#">
+                    <img src="./work/이광원_1_thumb.webp" alt="">
+                </a>
+                <a href="#">
+                    <img src="./work/이광원_3_thumb.webp" alt="">
+                </a>
+                <a href="#">
+                    <img src="./work/이광원_4_workimg.webp" alt="">
+                </a>
+                <a href="#">
+                    <img src="./work/이광원_5_workimg.webp" alt="">
+                </a>
+                <a href="#">
+                    <img src="./work/키프레임스튜디오로고.jpg" alt="">
+                </a>
+                <a href="#">
+                    <img src="./work/한국검수_logo.jpg" alt="">
+                </a>
+                <a href="#">
+                    <img src="./work/혜윰로고.jpg" alt="">
+                </a>
+                <a href="#">
+                    <img src="./work/바비의코인트레이딩로고.jpg" alt="">
+                </a>
             </div>
         </section>
     </main>
 
     <footer>
-        <div class="contents-container">
-            <div class="contents">
-                <div class="first-content">
-                    <p class="footer-tit">CheckMate</p>
-                    <p class="footer-project-tit">web design</p>
-                </div>
-                <div class="second-content">
-                    <div class="anchors">
-                        <a href="./index2.html">홈</a>
-                        <a href="./comment/comment.html">방명록</a>
-                        <a href="./search.html">프로필</a>
-                    </div>
-                    <div class="site-info">
-                        <p>2023 백석대학교 디자인영상학부 시각디자인전공 웹 미디어 디자인 프로젝트반 온라인 졸업전시회</p>
-                        <div class="offline-info">
-                            <h2>오프라인 전시</h2>
-                            <div>
-                                <span class="off-option">장소</span>
-                                <span class="off-text">충청남도 천안시 동남구 문암로 76 백석대학교, 조형관 갤러리 1관</span>
-                            </div>
-                            <div>
-                                <span class="off-option">기간</span>
-                                <span class="off-text">2023.10.30(월) ~ 2023.11.04(토) 09:00 ~ 18:00</span>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="sub-info">@2023 Baekseok University Department of Design and Imaging, Visual Design Major
-                        Web Media
-                        Design Project Class Graduation Online Exhibition Site</p>
-                </div>
-                <div class="third-content">
-                    <h3 class="creat-title">@Creat By</h3>
-                    <div>
-                        <span class="creat-option">기획/디자인/개발</span>
-                        <span class="creat-text">이광원</span>
-                    </div>
-                    <div>
-                        <span class="creat-option">영상제작</span>
-                        <span class="creat-text">방민수</span>
-                    </div>
-                </div>
-            </div>
-        </div>
+
     </footer>
 
-    <script src="./js/search.js"></script>
-    <script src="./comment/comment.js"></script>
-    <script src="./js/profileAll.js"></script>
+    <script src="./index.js"></script>
 </body>
 
 </html>

@@ -23,7 +23,7 @@ window.addEventListener("load", () => {
         // 현재 스크롤 위치를 이전 스크롤 위치로 업데이트
         prevScrollPos = currentScrollPos;
     });
-
+    window.scrollTo(0, 0);
 });
 
 
@@ -186,4 +186,6 @@ document.addEventListener('DOMContentLoaded', function () {
     setupSlider('slider3');
     setupSlider('slider4');
     setupSlider('slider5');
+
+
 });
