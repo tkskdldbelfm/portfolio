@@ -114,3 +114,51 @@ aside ul {
     font-size: 1.25rem;
     line-height: 1.6;
 }
+
+@media (max-width: 488px) {
+    .main-section .contents-wrap .text-area .section-foot {
+        width: 100%;
+    }
+
+    .main-section .contents-wrap .text-area .section-body2 {
+        flex-direction: column;
+    }
+
+    .section-body2 aside {
+        height: 6rem;
+        padding-top: 3rem;
+    }
+
+    aside ul {
+        width: auto;
+    }
+
+    .section-body2 .body-text {
+        width: 100%;
+    }
+
+    .experience.active,
+    .planning.active {
+        gap: 2.25rem;
+        padding-top: 1rem;
+    }
+
+    .planning h2 {
+        font-size: 2.25rem;
+    }
+
+    .Paragraph h3 {
+        font-size: 1.5rem;
+    }
+
+    .Paragraph p {
+        font-size: 1rem;
+    }
+
+
+    .Paragraph ul,
+    .Paragraph li {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+}
