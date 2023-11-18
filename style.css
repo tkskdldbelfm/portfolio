@@ -156,6 +156,10 @@ main {
     gap: 15rem;
 }
 
+main section:last-child {
+    margin-bottom: 3rem;
+}
+
 nav {
     position: fixed;
     width: 100%;
@@ -192,12 +196,12 @@ nav {
     transition: 0.2s ease-out;
 }
 
-.nav-anchor .nav-link:hover {
+.nav-link:hover {
     color: var(--primary-lightblue);
     font-size: 1.5rem;
 }
 
-.nav-anchor .nav-link.active {
+.nav-link.active {
     color: var(--primary-lightblue);
     font-size: 1.5rem;
 }
@@ -758,7 +762,6 @@ section .header a {
     height: 58rem;
     overflow: hidden;
     gap: 1rem;
-    display: flex;
     align-items: center;
 
     position: relative;
@@ -826,16 +829,77 @@ section .header a {
     scale: 1.1;
 }
 
+/* madal */
+#modal-container {
+    display: none;
+    position: fixed;
+    z-index: 99;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    position: relative;
+    border-radius: 1rem;
+    max-width: 80%;
+    max-height: 96%;
+    overflow: auto;
+}
+
+.modal-content::-webkit-scrollbar {
+    width: 0.5rem;
+    scrollbar-color: #888;
+}
+
+::-webkit-scrollbar {
+    width: 0.5rem;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--primary-lightblue);
+    border-radius: 0.25rem;
+}
+
+::-webkit-scrollbar-track {
+    background-color: var(--super-dark-blue);
+}
+
+
+.modal-content img {
+    width: 100%;
+
+}
+
+.modal-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+}
+
 
 .sub-section .contents-wrap .lottie {
     width: 21.25rem;
     height: 21.25rem;
 }
 
+footer {
+    width: 100%;
+    height: 16rem;
+    background-color: #0b0b1b;
+}
+
 @media (max-width: 488px) {
     h1 {
         text-transform: capitalize;
-        font-size: 2.25rem;
+        font-size: 2rem;
         font-style: normal;
         font-weight: 400;
         line-height: normal;
@@ -843,7 +907,7 @@ section .header a {
 
     h2 {
         text-transform: capitalize;
-        font-size: 2.25rem;
+        font-size: 1.5rem;
         font-style: normal;
         font-weight: 700;
         line-height: normal;
@@ -891,10 +955,24 @@ section .header a {
     main {
         width: 100%;
         overflow: hidden;
+        align-items: center;
+        justify-content: center;
     }
 
     main {
         gap: 3.75rem;
+    }
+
+    section {
+        width: 100%;
+    }
+
+    section .header {
+        padding: 0 1rem;
+    }
+
+    .sub-section .header {
+        padding: 0 1rem;
     }
 
     .mobile-nav {
@@ -1004,30 +1082,85 @@ section .header a {
     }
 
 
+
     .main-section .section {
-        display: flex;
         width: 100vw;
-        align-items: stretch;
-        align-content: flex-start;
         gap: 1rem;
         flex-wrap: wrap;
-        padding: 0 1rem;
+        padding: 0rem;
+    }
+
+
+    .img-slider .slider-container {
+        width: 100%;
+        height: 100%;
+    }
+
+    .main-section .contents-wrap .img-slider .slideBtn {
+        width: 2rem;
+        height: 2rem;
+    }
+
+    .main-section .contents-wrap .img-slider {
+        flex-direction: row;
+        width: 100%;
+        height: 100%;
     }
 
     .main-section .section .slide {
         display: flex;
         justify-content: center;
         align-items: center;
-        width: calc(100vw);
-        height: auto;
+        width: 100%;
+        height: 100%;
     }
 
     .main-section .section .slide img {
-        width: calc(100vw);
-        height: auto;
+        width: 100vw;
+        height: 100%;
+        min-width: 22.5rem;
+        min-height: 16.0625rem;
         object-fit: contain;
     }
 
+    .main-section .contents-wrap .text-area {
+        flex-direction: column;
+        width: 92%;
+    }
 
+    .main-section .contents-wrap .text-area .section-body.body-text {
+        width: 100%;
+    }
 
+    .main-section .contents-wrap .text-area .section-foot {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .main-section .contents-wrap {
+        align-items: center;
+    }
+
+    .sub-section .contents-wrap {
+        width: 100%;
+        gap: 0.25rem;
+        justify-content: center;
+    }
+
+    .sub-section .contents-wrap a {
+        width: 46%;
+        height: 12rem;
+    }
+
+    .sub-section .contents-wrap a img {
+        width: 100%;
+        height: 100%;
+        border-radius: 0.25rem;
+        object-fit: cover;
+    }
+
+    .sub-section .contents-wrap .lottie {
+        width: 12rem;
+        height: 12rem;
+    }
 }

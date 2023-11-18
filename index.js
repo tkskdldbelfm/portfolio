@@ -146,6 +146,7 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener('DOMContentLoaded', function () {
     // 슬라이더 스크립트 함수
     function setupSlider(sliderClass) {
+
         const slider = document.querySelector(`.${sliderClass}`);
         const slideContainer = slider.querySelector('.slider-container');
         const slideContentsWrap = slider.parentElement;
@@ -156,6 +157,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
         function showSlide(index) {
             slideContainer.style.transform = `translateX(-${index * 100}%)`; // 슬라이드 너비 조정
+            if (window.innerWidth <= 488) {
+                return; // 너비가 488px 이하인 경우에는 이펙트를 실행하지 않음
+
+            }
             slideContentsWrap.scrollIntoView({ behavior: 'smooth' });
             header.style.opacity = "0";
         }
@@ -186,6 +191,34 @@ document.addEventListener('DOMContentLoaded', function () {
     setupSlider('slider3');
     setupSlider('slider4');
     setupSlider('slider5');
+
+    const modalTriggerList = document.querySelectorAll(".modal-trigger");
+    const modalContainer = document.getElementById("modal-container");
+    const modalImage = document.querySelector(".modal-image");
+    const body = document.body;
+
+    modalTriggerList.forEach(function (trigger) {
+        trigger.addEventListener("click", function (e) {
+            e.preventDefault();
+            const imgSrc = trigger.getAttribute("data-src");
+            showModal(imgSrc);
+        });
+    });
+
+    function showModal(imgSrc) {
+        modalImage.src = imgSrc;
+
+        // 모달을 표시하기 위해 동적으로 HTML 코드 추가
+        modalContainer.style.display = "flex";
+        body.style.overflow = 'hidden';
+    }
+
+    // 모달 닫기 함수
+    window.closeModal = function () {
+        // 모달을 닫기 위해 동적으로 추가한 HTML 코드 제거
+        modalContainer.style.display = "none";
+        body.style.overflow = 'auto';
+    };
 
 
 });
