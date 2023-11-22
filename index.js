@@ -142,26 +142,19 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-
 document.addEventListener('DOMContentLoaded', function () {
     // 슬라이더 스크립트 함수
     function setupSlider(sliderClass) {
-
         const slider = document.querySelector(`.${sliderClass}`);
         const slideContainer = slider.querySelector('.slider-container');
         const slideContentsWrap = slider.parentElement;
-        const slides = slideContainer.querySelectorAll('.slide'); // 슬라이드 요소들을 가져옴
+        const slides = slideContainer.querySelectorAll('.slide');
         const header = document.querySelector("nav");
 
         let currentIndex = 0;
 
         function showSlide(index) {
-            slideContainer.style.transform = `translateX(-${index * 100}%)`; // 슬라이드 너비 조정
-            if (window.innerWidth <= 488) {
-                return; // 너비가 488px 이하인 경우에는 이펙트를 실행하지 않음
-
-            }
-            slideContentsWrap.scrollIntoView({ behavior: 'smooth' });
+            slideContainer.style.transform = `translateX(-${index * 100}%)`;
             header.style.opacity = "0";
         }
 
@@ -176,10 +169,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         // 다음 버튼 클릭 시
-        slider.querySelector(`#nextBtn${sliderClass}`).addEventListener('click', nextSlide);
+        slider.querySelector(`#nextBtn${sliderClass}`).addEventListener('click', function () {
+            nextSlide();
+            slideContentsWrap.scrollIntoView({ behavior: 'smooth' });
+        });
 
         // 이전 버튼 클릭 시
-        slider.querySelector(`#prevBtn${sliderClass}`).addEventListener('click', prevSlide);
+        slider.querySelector(`#prevBtn${sliderClass}`).addEventListener('click', function () {
+            prevSlide();
+            slideContentsWrap.scrollIntoView({ behavior: 'smooth' });
+        });
 
         // 초기 슬라이드 표시
         showSlide(currentIndex);
@@ -191,5 +190,4 @@ document.addEventListener('DOMContentLoaded', function () {
     setupSlider('slider3');
     setupSlider('slider4');
     setupSlider('slider5');
-
 });
