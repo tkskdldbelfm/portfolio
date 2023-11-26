@@ -95,7 +95,7 @@ $(window).on('mouseup', function (e) {
 });
 
 function drawLine() {
-    if (window.innerWidth <= 488) {
+    if (window.innerWidth <= 1400) {
         return; // 너비가 488px 이하인 경우에는 이펙트를 실행하지 않음
     }
 
@@ -147,7 +147,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function setupSlider(sliderClass) {
         const slider = document.querySelector(`.${sliderClass}`);
         const slideContainer = slider.querySelector('.slider-container');
-        const slideContentsWrap = slider.parentElement;
+        const slideContentsWrap = slider.parentNode.parentNode.parentNode;
         const slides = slideContainer.querySelectorAll('.slide');
         const header = document.querySelector("nav");
 
