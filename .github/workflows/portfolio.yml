@@ -22,14 +22,13 @@ jobs:
           stage: main
           yaml: |
             name: portfolio
-            app: web
+            app: node@16
             options:
-              docbase: /
-              spa: false
-              nodeversion: "16"
-              indexpage: index.html
+              env:
+                - name: NODE_ENV
+                  value: production
+              ports: "30382"
             context:
               git:
                 url: git@github.com:${{ github.repository }}.git
                 ref: ${{ github.ref }}
-              preset: html
