@@ -23,7 +23,6 @@ const dbConfig = {
 const pool = mysql.createPool(dbConfig);
 
 
-
 const sessionStore = new MySQLStore({
     checkExpirationInterval: 900000, // 15분마다 만료된 세션 정리 (밀리초)
     expiration: 86400000, // 1일 이상 사용되지 않은 세션 삭제 (밀리초)
@@ -33,7 +32,7 @@ const sessionStore = new MySQLStore({
 app.use(session({
     secret: process.env.SECRET_KEY, // 쿠키에 서명을 추가하여 보안을 강화합니다.
     resave: false,
-    saveUninitialized: true,
+    saveUninitialized: false,
     store: sessionStore,
     cookie: {
         secure: true,// HTTPS를 사용하는 경우 true로 변경
