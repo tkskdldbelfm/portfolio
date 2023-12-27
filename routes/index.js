@@ -2,6 +2,7 @@
 // routes/index.js
 const express = require('express');
 const router = express.Router();
+const mysql = require('mysql2');
 const { pool } = require('../app'); // app.js에서 가져옴
 
 
