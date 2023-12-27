@@ -85,7 +85,7 @@ app.get('/', (req, res) => {
                 return res.status(500).send('Internal Server Error');
             }
 
-            const updateVisitorCountQuery = 'UPDATE visit_logs SET count = count + 1 WHERE id = ?';
+            const updateVisitorCountQuery = 'UPDATE visit_logs SET count = count + 1 WHERE visitor_id = ?';
             connection.query(updateVisitorCountQuery, [req.sessionID], (err) => {
                 if (err) {
                     connection.release();
