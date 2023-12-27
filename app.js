@@ -22,7 +22,6 @@ const dbConfig = {
 // MariaDB 연결
 const pool = mysql.createPool(dbConfig);
 
-
 const sessionStore = new MySQLStore({
     checkExpirationInterval: 900000, // 15분마다 만료된 세션 정리 (밀리초)
     expiration: 86400000, // 1일 이상 사용되지 않은 세션 삭제 (밀리초)
@@ -32,7 +31,7 @@ const sessionStore = new MySQLStore({
 app.use(session({
     secret: process.env.SECRET_KEY, // 쿠키에 서명을 추가하여 보안을 강화합니다.
     resave: false,
-    saveUninitialized: false,
+    saveUninitialized: true,
     store: sessionStore,
     cookie: {
         secure: true,// HTTPS를 사용하는 경우 true로 변경
@@ -42,11 +41,9 @@ app.use(session({
 
 // 데이터베이스에 접속 기록을 저장하기 위한 테이블 생성
 const createVisitLogsTable = `
-  CREATE TABLE IF NOT EXISTS visit_logs (
+CREATE TABLE IF NOT EXISTS visitor_log (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    visitor_id VARCHAR(255),
-    visit_time DATETIME DEFAULT CURRENT_TIMESTAMP,
-    count INT DEFAULT 0
+    timestamp DATETIME
   )
 `;
 
@@ -71,63 +68,7 @@ const indexRoute = require('./routes/index');
 
 app.use('/', indexRoute);
 
-// 루트 경로에 대한 라우트
-app.get('/', (req, res) => {
-    if (!req.session.visited) {
-        req.session.visited = true;
 
-        pool.getConnection((err, connection) => {
-            if (err) {
-                console.error('Error getting database connection:', err);
-                return res.status(500).send('Internal Server Error');
-            }
-
-            const updateVisitorCountQuery = 'UPDATE visit_logs SET count = count + 1, visit_time = CURRENT_TIMESTAMP() WHERE visitor_id = ?';
-            connection.query(updateVisitorCountQuery, [req.sessionID], (err) => {
-                if (err) {
-                    connection.release();
-                    console.error('Error updating visitor count:', err);
-                    return res.status(500).send('Internal Server Error');
-                }
-
-                const selectVisitorCountQuery = 'SELECT count FROM visit_logs WHERE visitor_id = ?';
-                connection.query(selectVisitorCountQuery, [req.sessionID], (err, results) => {
-                    if (err) {
-                        connection.release();
-                        console.error('Error selecting visitor count:', err);
-                        return res.status(500).send('Internal Server Error');
-                    }
-
-                    const visitorCount = results[0] ? results[0].count : 0;
-
-                    connection.release();
-                    res.send(`Welcome! You are visitor number ${visitorCount}.`);
-                });
-            });
-        });
-    } else {
-        pool.getConnection((err, connection) => {
-            if (err) {
-                console.error('Error getting database connection:', err);
-                return res.status(500).send('Internal Server Error');
-            }
-
-            const selectVisitorCountQuery = 'SELECT count FROM visit_logs WHERE visitor_id = ?';
-            connection.query(selectVisitorCountQuery, [req.sessionID], (err, results) => {
-                if (err) {
-                    connection.release();
-                    console.error('Error selecting visitor count:', err);
-                    return res.status(500).send('Internal Server Error');
-                }
-
-                const visitorCount = results[0] ? results[0].count : 0;
-
-                connection.release();
-                res.send(`Welcome back! You are visitor number ${visitorCount}.`);
-            });
-        });
-    }
-});
 
 // 서버 시작
 app.listen(port, () => {
