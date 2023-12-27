@@ -1,8 +1,7 @@
 // app.js
 const express = require('express');
 const path = require('path');
-const mysql = require('mysql');
-const mariadb = require('mariadb');
+const mysql = require('mysql2/promise');
 const session = require('express-session');
 const MySQLStore = require('express-mysql-session')(session);
 
@@ -21,7 +20,7 @@ const dbConfig = {
 
 
 // MariaDB 연결
-const pool = mariadb.createPool(dbConfig);
+const pool = mysql.createPool(dbConfig);
 
 const sessionStore = new MySQLStore({
     checkExpirationInterval: 900000, // 15분마다 만료된 세션 정리 (밀리초)
@@ -48,13 +47,14 @@ CREATE TABLE IF NOT EXISTS visitor_log (
   )
 `;
 
-pool.query(createVisitLogsTable, (err) => {
-    if (err) {
-        console.error('Error creating visit_logs table:', err);
-    } else {
-        console.log('visit_logs table is created or already exists.');
-    }
-});
+// 연결 풀을 사용하여 테이블 생성
+pool.query(createVisitLogsTable)
+    .then(() => {
+        console.log('visitor_log table is created or already exists.');
+    })
+    .catch((err) => {
+        console.error('Error creating visitor_log table:', err);
+    });
 
 // 정적 파일을 제공하기 위해 express.static 미들웨어를 사용합니다.
 app.use(express.static(path.join(__dirname, 'public')));
@@ -65,10 +65,7 @@ app.set('views', path.join(__dirname, 'views'));
 
 // 라우트 설정
 const indexRoute = require('./routes/index');
-
-
 app.use('/', indexRoute);
-
 
 
 // 서버 시작
