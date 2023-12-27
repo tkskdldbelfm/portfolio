@@ -7,6 +7,7 @@ const { pool } = require('../app'); // app.js에서 가져옴
 
 
 
+// routes/index.js
 router.get('/', async (req, res) => {
     try {
         if (!req.session.visited) {
@@ -16,7 +17,10 @@ router.get('/', async (req, res) => {
             // 세션에 방문 여부 표시
             req.session.visited = true;
 
-            res.render('index'); // 또는 res.send('Welcome to the website!');
+            // 세션 저장
+            req.session.save(() => {
+                res.render('index'); // 또는 res.send('Welcome to the website!');
+            });
         } else {
             res.render('index'); // 또는 res.send('Welcome to the website!');
         }
