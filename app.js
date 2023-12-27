@@ -42,6 +42,7 @@ pool.query(createVisitLogsTable, (err) => {
     }
 });
 
+const sessionStore = new MySQLStore(dbConfig, pool);
 
 // 세션 및 쿠키 설정
 app.use(session({
@@ -54,8 +55,6 @@ app.use(session({
         maxAge: 60 * 60 * 1000, // 세션의 유효 시간을 1시간으로 설정 (밀리초 단위) 
     }
 }));
-
-const sessionStore = new MySQLStore(dbConfig, mysql.createConnection(dbConfig));
 
 
 // 정적 파일을 제공하기 위해 express.static 미들웨어를 사용합니다.
