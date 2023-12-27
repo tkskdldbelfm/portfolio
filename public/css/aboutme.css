@@ -29,8 +29,13 @@ main.details {
     margin-top: 16rem;
 }
 
-#introduce .intro-box {
+#introduce .intro-box .experience .study .ex-text .text-date {
     width: 100%;
+}
+
+#introduce .intro-box.none {
+    width: 100%;
+    border: none;
 }
 
 .sub-section .contents-wrap {
@@ -60,7 +65,7 @@ main.details {
 
 .text-group {
     height: 100%;
-    margin-left: 0.585rem;
+    margin-left: 0.72rem;
     padding: 0 0 2rem 0;
     display: flex;
     flex-direction: column-reverse;
@@ -103,7 +108,7 @@ main.details {
 
     .text-group {
         width: 100%;
-        margin-left: 1rem;
+        margin-left: 1.36rem;
     }
 
     .text-group ul {
@@ -117,5 +122,9 @@ main.details {
     .text-group li {
         font-size: 1.5rem;
         font-weight: 400;
+    }
+
+    #introduce .intro-box .experience .study .ex-text .text-date {
+        width: 14.6rem;
     }
 }
