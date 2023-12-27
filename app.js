@@ -4,7 +4,7 @@ const path = require('path');
 const mysql = require('mysql2/promise');
 const session = require('express-session');
 const MySQLStore = require('express-mysql-session')(session);
-
+const cookieParser = require('cookie-parser');
 
 const app = express();
 const port = 3000;
@@ -30,14 +30,16 @@ const sessionStore = new MySQLStore({
 // 세션 및 쿠키 설정
 app.use(session({
     secret: process.env.SECRET_KEY, // 쿠키에 서명을 추가하여 보안을 강화합니다.
-    resave: false,
-    saveUninitialized: true,
+    resave: true,
+    saveUninitialized: false,
     store: sessionStore,
     cookie: {
         secure: true,// HTTPS를 사용하는 경우 true로 변경
         maxAge: 60 * 60 * 1000, // 세션의 유효 시간을 1시간으로 설정 (밀리초 단위) 
     }
 }));
+
+app.use(cookieParser());
 
 // 데이터베이스에 접속 기록을 저장하기 위한 테이블 생성
 const createVisitLogsTable = `
