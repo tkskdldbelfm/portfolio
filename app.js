@@ -42,7 +42,10 @@ pool.query(createVisitLogsTable, (err) => {
     }
 });
 
-const sessionStore = new MySQLStore(dbConfig, pool);
+const sessionStore = new MySQLStore({
+    checkExpirationInterval: 900000, // 15분마다 만료된 세션 정리 (밀리초)
+    expiration: 86400000, // 1일 이상 사용되지 않은 세션 삭제 (밀리초)
+}, pool);
 
 // 세션 및 쿠키 설정
 app.use(session({
