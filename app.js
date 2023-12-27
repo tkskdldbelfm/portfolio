@@ -29,7 +29,7 @@ const createVisitLogsTable = `
   CREATE TABLE IF NOT EXISTS visit_logs (
     id INT AUTO_INCREMENT PRIMARY KEY,
     visitor_id VARCHAR(255),
-    visit_time DATETIME,
+    visit_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     count INT DEFAULT 0
   )
 `;
@@ -70,7 +70,6 @@ const indexRoute = require('./routes/index');
 
 app.use('/', indexRoute);
 
-
 // 루트 경로에 대한 라우트
 app.get('/', (req, res) => {
     // 클라이언트의 세션에 방문 여부를 확인합니다.
@@ -85,7 +84,7 @@ app.get('/', (req, res) => {
                 return res.status(500).send('Internal Server Error');
             }
 
-            const updateVisitorCountQuery = 'UPDATE visit_logs SET count = count + 1 WHERE visitor_id = ?';
+            const updateVisitorCountQuery = 'UPDATE visit_logs SET count = count + 1, visit_time = CURRENT_TIMESTAMP() WHERE visitor_id = ?';
             connection.query(updateVisitorCountQuery, [req.sessionID], (err) => {
                 if (err) {
                     connection.release();
@@ -104,20 +103,9 @@ app.get('/', (req, res) => {
 
                     const visitorCount = results[0] ? results[0].count : 0;
 
-                    // 현재 시간을 포맷팅합니다.
-                    const visitTime = new Date().toISOString().slice(0, 19).replace('T', ' ');
-
-                    // 접속 기록을 데이터베이스에 저장합니다.
-                    const insertVisitLogQuery = 'INSERT INTO visit_logs (visitor_id, visit_time, count) VALUES (?, ?, ?)';
-                    connection.query(insertVisitLogQuery, [req.sessionID, visitTime, visitorCount], (err) => {
-                        connection.release();
-                        if (err) {
-                            console.error('Error inserting visit log:', err);
-                            return res.status(500).send('Internal Server Error');
-                        }
-
-                        res.send(`Welcome! You are visitor number ${visitorCount}.`);
-                    });
+                    // 응답을 보냅니다.
+                    connection.release();
+                    res.send(`Welcome! You are visitor number ${visitorCount}.`);
                 });
             });
         });
@@ -139,20 +127,9 @@ app.get('/', (req, res) => {
 
                 const visitorCount = results[0] ? results[0].count : 0;
 
-                // 현재 시간을 포맷팅합니다.
-                const visitTime = new Date().toISOString().slice(0, 19).replace('T', ' ');
-
-                // 접속 기록을 데이터베이스에 저장합니다.
-                const insertVisitLogQuery = 'INSERT INTO visit_logs (visitor_id, visit_time, count) VALUES (?, ?, ?)';
-                connection.query(insertVisitLogQuery, [req.sessionID, visitTime, visitorCount], (err) => {
-                    connection.release();
-                    if (err) {
-                        console.error('Error inserting visit log:', err);
-                        return res.status(500).send('Internal Server Error');
-                    }
-
-                    res.send(`Welcome back! You are visitor number ${visitorCount}.`);
-                });
+                // 응답을 보냅니다.
+                connection.release();
+                res.send(`Welcome back! You are visitor number ${visitorCount}.`);
             });
         });
     }
