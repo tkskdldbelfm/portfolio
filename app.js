@@ -24,24 +24,6 @@ const pool = mysql.createPool(dbConfig);
 
 
 
-// 데이터베이스에 접속 기록을 저장하기 위한 테이블 생성
-const createVisitLogsTable = `
-  CREATE TABLE IF NOT EXISTS visit_logs (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    visitor_id VARCHAR(255),
-    visit_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    count INT DEFAULT 0
-  )
-`;
-
-pool.query(createVisitLogsTable, (err) => {
-    if (err) {
-        console.error('Error creating visit_logs table:', err);
-    } else {
-        console.log('visit_logs table is created or already exists.');
-    }
-});
-
 const sessionStore = new MySQLStore({
     checkExpirationInterval: 900000, // 15분마다 만료된 세션 정리 (밀리초)
     expiration: 86400000, // 1일 이상 사용되지 않은 세션 삭제 (밀리초)
@@ -59,6 +41,23 @@ app.use(session({
     }
 }));
 
+// 데이터베이스에 접속 기록을 저장하기 위한 테이블 생성
+const createVisitLogsTable = `
+  CREATE TABLE IF NOT EXISTS visit_logs (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    visitor_id VARCHAR(255),
+    visit_time DATETIME DEFAULT CURRENT_TIMESTAMP,
+    count INT DEFAULT 0
+  )
+`;
+
+pool.query(createVisitLogsTable, (err) => {
+    if (err) {
+        console.error('Error creating visit_logs table:', err);
+    } else {
+        console.log('visit_logs table is created or already exists.');
+    }
+});
 
 // 정적 파일을 제공하기 위해 express.static 미들웨어를 사용합니다.
 app.use(express.static(path.join(__dirname, 'public')));
@@ -75,12 +74,9 @@ app.use('/', indexRoute);
 
 // 루트 경로에 대한 라우트
 app.get('/', (req, res) => {
-    // 클라이언트의 세션에 방문 여부를 확인합니다.
-    if (!req.session.visited || req.session.visited === undefined) {
-        // 처음 방문한 경우에만 visited 속성을 설정합니다.
+    if (!req.session.visited) {
         req.session.visited = true;
 
-        // 방문자 수를 1 증가시킵니다.
         pool.getConnection((err, connection) => {
             if (err) {
                 console.error('Error getting database connection:', err);
@@ -95,7 +91,6 @@ app.get('/', (req, res) => {
                     return res.status(500).send('Internal Server Error');
                 }
 
-                // 방문자 수를 조회합니다.
                 const selectVisitorCountQuery = 'SELECT count FROM visit_logs WHERE visitor_id = ?';
                 connection.query(selectVisitorCountQuery, [req.sessionID], (err, results) => {
                     if (err) {
@@ -106,14 +101,12 @@ app.get('/', (req, res) => {
 
                     const visitorCount = results[0] ? results[0].count : 0;
 
-                    // 응답을 보냅니다.
                     connection.release();
                     res.send(`Welcome! You are visitor number ${visitorCount}.`);
                 });
             });
         });
     } else {
-        // 이미 방문한 경우에는 방문자 수를 증가시키지 않고 바로 응답합니다.
         pool.getConnection((err, connection) => {
             if (err) {
                 console.error('Error getting database connection:', err);
@@ -130,7 +123,6 @@ app.get('/', (req, res) => {
 
                 const visitorCount = results[0] ? results[0].count : 0;
 
-                // 응답을 보냅니다.
                 connection.release();
                 res.send(`Welcome back! You are visitor number ${visitorCount}.`);
             });
