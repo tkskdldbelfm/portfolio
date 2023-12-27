@@ -51,6 +51,17 @@ CREATE TABLE IF NOT EXISTS visitor_log (
 pool.query(createVisitLogsTable)
     .then(() => {
         console.log('visitor_log table is created or already exists.');
+
+        // 라우트 설정
+        const indexRoute = require('./routes/index');
+        app.use('/', indexRoute);
+
+
+        // 서버 시작
+        app.listen(port, () => {
+            console.log(`Server is running at http://localhost:${port}`);
+        });
+
     })
     .catch((err) => {
         console.error('Error creating visitor_log table:', err);
@@ -62,15 +73,5 @@ app.use(express.static(path.join(__dirname, 'public')));
 // 템플릿 엔진 설정
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
-
-// 라우트 설정
-const indexRoute = require('./routes/index');
-app.use('/', indexRoute);
-
-
-// 서버 시작
-app.listen(port, () => {
-    console.log(`Server is running at http://localhost:${port}`);
-});
 
 module.exports = { app, pool };
