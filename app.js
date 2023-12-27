@@ -2,6 +2,7 @@
 const express = require('express');
 const path = require('path');
 const mysql = require('mysql');
+const mariadb = require('mariadb');
 const session = require('express-session');
 const MySQLStore = require('express-mysql-session')(session);
 
@@ -20,7 +21,7 @@ const dbConfig = {
 
 
 // MariaDB 연결
-const pool = mysql.createPool(dbConfig);
+const pool = mariadb.createPool(dbConfig);
 
 const sessionStore = new MySQLStore({
     checkExpirationInterval: 900000, // 15분마다 만료된 세션 정리 (밀리초)

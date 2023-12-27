@@ -2,7 +2,6 @@
 // routes/index.js
 const express = require('express');
 const router = express.Router();
-
 const pool = require('../app').pool; // app.js에서 가져옴
 
 
