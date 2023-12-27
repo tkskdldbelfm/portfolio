@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="ko-kr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>이광원 디자이너 포트폴리오</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/font-family.css" />
+    <link rel="stylesheet" href="./css/aboutme.css">
+    <script src="./js/pagesize.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+</head>
+
+<body>
+    <div id="drawing_line">
+        <svg class="drawing_line_svg">
+            <circle class="drawing_line_circle" cx="0" cy="0" r="8"></circle>
+            <polyline class="drawing_line_polyline" points=""></polyline>
+        </svg>
+    </div>
+    <nav>
+        <div class="nav container">
+            <div class="nav-anchor">
+                <a href="/" class="nav-link">Home</a>
+                <a href="work.html" class="nav-link active">Work</a>
+                <a href="/" class="nav-link">
+                    <svg width="67" height="41" viewBox="0 0 67 41" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g id="Isolation_Mode" clip-path="url(#clip0_818_439)">
+                            <path id="Vector"
+                                d="M46.7598 20.4863L26.5198 40.7263H67.0098V0.236328H26.5098L46.7498 20.4763L46.7598 20.4863ZM61.9098 4.81633H51.6698L48.7698 1.91633H64.8198V17.9663L61.9198 15.0663V4.81633H61.9098ZM55.1398 11.4063H44.8998L41.9998 8.50633H58.0498V24.5563L55.1498 21.6563V11.4163L55.1398 11.4063Z"
+                                fill="white" />
+                            <path id="Vector_2"
+                                d="M37.5894 20.5464L17.3594 0.316406V7.63641L30.2694 20.5464L17.3594 33.4664V40.7864L37.5894 20.5464Z"
+                                fill="white" />
+                            <path id="Vector_3"
+                                d="M20.7495 20.3257L0.519531 0.0957031V7.4157L13.4295 20.3257L0.519531 33.2457V40.5557L20.7495 20.3257Z"
+                                fill="white" />
+                        </g>
+                        <defs>
+                            <clipPath id="clip0_818_439">
+                                <rect width="66.48" height="40.69" fill="white"
+                                    transform="translate(0.519531 0.0957031)" />
+                            </clipPath>
+                        </defs>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="mobile-nav">
+        <div class="menuBtn">
+            <img src="./icons/menu-stroke-white.png" alt="">
+        </div>
+        <div class="nav-mobile">
+            <div class="menu-slider">
+                <a href="/" class="nav-link">Home</a>
+                <a href="./work.html" class="nav-link active">Work</a>
+            </div>
+        </div>
+    </div>
+
+    <article id="main-banner" class="container">
+        <div class="banner-text">
+            <div class="titleEffect">
+                <h3 translate="no">ABOUT ME</h3>
+                <h3 translate="no">ABOUT ME</h3>
+                <h3 translate="no">ABOUT ME</h3>
+            </div>
+        </div>
+        <img src="./img/main-banner-img.png" alt="">
+    </article>
+
+    <main>
+        <section id="introduce" class="container">
+            <div class="header">
+                <h2>Introduce</h2>
+                <a href="#">자세히 보러가기</a>
+            </div>
+            <div class="contents container">
+                <div class="profile-box">
+                    <div class="profile">
+                        <img src="./img/profile-img.svg" alt="profile" class="profile-img">
+                        <div class="text">
+                            <div class="name-birth">
+                                <h3>이광원</h3>
+                                <p>1998.10.14</p>
+                            </div>
+                            <div class="info-box">
+                                <div class="info">
+                                    <div class="icon">
+                                        <svg width="16" height="17" viewBox="0 0 16 17" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M14.3374 15.9839L14.3539 15.9575L16 12.6163L11.1916 9.00996L8.97922 10.6691C8.14488 10.6195 7.3577 10.2657 6.76669 9.67465C6.17568 9.08363 5.82187 8.29645 5.77223 7.4621L7.43141 5.24977L3.82517 0.441406L0.511878 2.0738L0.483904 2.08754L0.457512 2.10409C0.317148 2.1912 0.201417 2.31279 0.121334 2.45728C0.0412511 2.60177 -0.000516993 2.76435 3.70594e-06 2.92955L3.66825e-06 3.7917C3.59564e-06 5.45289 0.327199 7.09781 0.962907 8.63254C1.59862 10.1673 2.53039 11.5618 3.70503 12.7364C4.87967 13.911 6.27416 14.8428 7.8089 15.4785C9.34363 16.1142 10.9886 16.4414 12.6497 16.4414L13.5119 16.4414C13.6771 16.4419 13.8397 16.4002 13.9842 16.3201C14.1287 16.24 14.2503 16.1243 14.3374 15.9839ZM12.6497 15.2067C6.35549 15.2067 1.23474 10.0859 1.23474 3.7917L1.23474 3.09408L3.45197 2.00188L5.88807 5.25L4.53183 7.05839L4.53183 7.26416C4.5332 8.49585 5.0231 9.6767 5.89404 10.5476C6.76498 11.4186 7.94582 11.9085 9.17751 11.9098L9.38329 11.9098L11.1916 10.5536L14.4396 12.9894L13.3472 15.2067L12.6497 15.2067Z"
+                                                fill="white" />
+                                        </svg>
+
+                                    </div>
+                                    <span>010-6855-6891</span>
+                                </div>
+                                <div class="info">
+                                    <div class="icon">
+                                        <svg width="16" height="13" viewBox="0 0 16 13" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M0 0.441406V12.4414H16V0.441406H0ZM7.36 7.61641C7.545 7.74543 7.76943 7.81511 8 7.81511C8.23057 7.81511 8.45501 7.74543 8.64 7.61641L9.42223 7.06641L14.9333 10.9414V11.4414H1.06667V10.9414L6.57777 7.06641L7.36 7.61641ZM8 6.81641L1.06667 1.94141V1.44141H14.9333V1.94141L8 6.81641ZM1.06667 3.19141L5.6889 6.44141L1.06667 9.69141V3.19141ZM14.9333 9.69141L10.3111 6.44141L14.9333 3.19141V9.69141Z"
+                                                fill="white" />
+                                        </svg>
+                                    </div>
+                                    <span>kakd1313@naver.com</span>
+                                </div>
+                                <div class="info">
+                                    <div class="icon">
+                                        <svg width="16" height="15" viewBox="0 0 16 15" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M12.0003 10.9898L8.00028 13.1709L4.00028 10.9898V8.68542L2.85742 8.06995V11.6377L8.00028 14.4419L13.1431 11.6377V8.06995L12.0003 8.68542V10.9898Z"
+                                                fill="white" />
+                                            <path
+                                                d="M8 0.441406L0 4.46246V5.42261L8 9.73076L14.8571 6.03808V9.09722H16V4.46246L8 0.441406ZM8 8.46367L1.49361 4.95963L8 1.68932L14.5064 4.95963L8 8.46367Z"
+                                                fill="white" />
+                                        </svg>
+                                    </div>
+                                    <span>백석대학교 시각디자인전공</span>
+                                </div>
+                                <div class="angle top-left">
+                                    <img src="./img/border-graphic.svg" alt="">
+                                </div>
+                                <div class="angle bottom-right">
+                                    <img src="./img/border-graphic_right-bottom.svg" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skills margin-top">
+                        <div class="ex-title">
+                            <img src="./icons/list-deco.svg" alt="list-deco">
+                            <h3>Skills</h3>
+                        </div>
+                        <div class="skills-group">
+                            <div class="tools">
+                                <img src="./icons/figma.png" alt="figma">
+                                <img src="./icons/xd.png" alt="xd">
+                                <img src="./icons/ai.png" alt="ai">
+                                <img src="./icons/ps.png" alt="ps">
+                                <img src="./icons/id.png" alt="id">
+                                <img src="./icons/html.png" alt="html">
+                                <img src="./icons/css.png" alt="css">
+                                <img src="./icons/ae.png" alt="ae">
+                                <img src="./icons/pr.png" alt="pr">
+                                <img src="./icons/js.png" alt="js">
+                            </div>
+                            <svg xmlns="http://www.w3.org/2000/svg" height="6" viewBox="0 0 486 6" fill="none">
+                                <path
+                                    d="M0.333333 2.94141C0.333333 4.41417 1.52724 5.60807 3 5.60807C4.47276 5.60807 5.66667 4.41417 5.66667 2.94141C5.66667 1.46865 4.47276 0.27474 3 0.27474C1.52724 0.27474 0.333333 1.46865 0.333333 2.94141ZM480.333 2.94141C480.333 4.41417 481.527 5.60807 483 5.60807C484.473 5.60807 485.667 4.41417 485.667 2.94141C485.667 1.46865 484.473 0.27474 483 0.27474C481.527 0.27474 480.333 1.46865 480.333 2.94141ZM3 3.44141H483V2.44141H3V3.44141Z"
+                                    fill="url(#paint0_linear_1037_783)" />
+                                <defs>
+                                    <linearGradient id="paint0_linear_1037_783" x1="3" y1="2.94141" x2="483"
+                                        y2="2.94141" gradientUnits="userSpaceOnUse">
+                                        <stop stop-color="#D9D9D9" />
+                                        <stop offset="1" stop-color="#666666" />
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                            <div class="skills-text">
+                                <p>능숙하게 사용합니다</p>
+                                <p>이해도가 높습니다</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="intro-box">
+                    <div class="profile intro">
+                        <div class="intro-text">
+                            <h3>디지털 시대, 사용자 중심의 디자인을 제공하는</h3>
+                            <h3>최고의 UI/UX 디자이너로 성장하고자 합니다</h3>
+                        </div>
+                        <div class="angle top-left">
+                            <img src="./img/border-graphic.svg" alt="">
+                        </div>
+                        <div class="angle bottom-right">
+                            <img src="./img/border-graphic_right-bottom.svg" alt="">
+                        </div>
+                    </div>
+                    <div class="experience margin-top">
+                        <div class="leadership">
+                            <div class="ex-title">
+                                <img src="./icons/list-deco.svg" alt="list-deco">
+                                <h3>Award</h3>
+                            </div>
+                            <div class="ex-text">
+                                <p>2023 백석대학교 교내 창업 아이디어 경진대회 대상</p>
+                                <p>2022 라우드소싱 더(The)좋은집 로고디자인 우승</p>
+                                <p>2022 백석대학교 교내 창업 아이디어 경진대회 본선</p>
+                                <p>2021 백석대학교 전공 홍보영상 공모전 은상</p>
+                            </div>
+                        </div>
+                        <div class="study">
+                            <div class="ex-title">
+                                <img src="./icons/list-deco.svg" alt="list-deco">
+                                <h3>Educated</h3>
+                            </div>
+                            <div class="ex-text">
+                                <div class="text-date">
+                                    <p>원티드 UI/UX 프리온보딩 챌린지</p>
+                                    <p>23.08</p>
+                                </div>
+                                <div class="text-date">
+                                    <p>기획~개발 협업 프로젝트 진행</p>
+                                    <p>23.06 ~ 23.08</p>
+                                </div>
+                                <div class="text-date">
+                                    <p>동아리 대상 디자인 툴 강의 진행</p>
+                                    <p>23.03 ~ 23.06</p>
+                                </div>
+
+                                <div class="text-date">
+                                    <p>학생회 대상 디자인 스터디 멘토</p>
+                                    <p>22.08 ~ 22.12</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="experience margin-top">
+                        <div class="leadership">
+                            <div class="ex-title">
+                                <img src="./icons/list-deco.svg" alt="list-deco">
+                                <h3>Scholarship</h3>
+                            </div>
+                            <div class="ex-text">
+                                <p>리더십(학회) 장학금(5학기)</p>
+                                <p>교수 추천 장학금(3학기)</p>
+                                <p>성적 우수 장학금(3학기)</p>
+                            </div>
+                        </div>
+                        <div class="study">
+                            <div class="ex-title">
+                                <img src="./icons/list-deco.svg" alt="list-deco">
+                                <h3>Leadership</h3>
+                            </div>
+                            <div class="ex-text">
+                                <div class="text-date">
+                                    <p>제 20대 시각디자인 전공 학생회장</p>
+                                    <p>22.07 ~ 2023.06</p>
+                                </div>
+                                <div class="text-date">
+                                    <p>인디비주얼(UIUX동아리) 회장</p>
+                                    <p>22.09 ~ 23.11</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="sub-section" id="introduce">
+            <div class="header">
+                <h2>Attitude</h2>
+            </div>
+            <div class="contents container">
+                <div class="intro-box">
+                    <div class="profile intro">
+                        <div class="intro-text">
+                            <h3>정보의 홍수 속에서 과하지도, 부족하지도 않은</h3>
+                            <h3>담백한 디자인을 추구합니다</h3>
+                        </div>
+                        <div class="angle top-left">
+                            <img src="./img/border-graphic.svg" alt="">
+                        </div>
+                        <div class="angle bottom-right">
+                            <img src="./img/border-graphic_right-bottom.svg" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="intro-box">
+                    <div class="profile intro">
+                        <div class="intro-text">
+                            <h3>업무와 관련된 분야라면 어떤 것이든</h3>
+                            <h3>적극적으로 탐구하려는 태도를 갖고 있습니다</h3>
+                        </div>
+                        <div class="angle top-left">
+                            <img src="./img/border-graphic.svg" alt="">
+                        </div>
+                        <div class="angle bottom-right">
+                            <img src="./img/border-graphic_right-bottom.svg" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="sub-section" id="introduce">
+            <div class="header">
+                <h2>Timeline</h2>
+            </div>
+            <div class="contents container timeline-section">
+                <div class="group">
+                    <div class="timeline">
+                    </div>
+                    <div class="text-group">
+                        <ul>2015.03
+                            <li>입시미술 시작</li>
+                        </ul>
+                        <ul>2017.02
+                            <li>대전 보문고등학교 졸업</li>
+                        </ul>
+                        <ul>2017.03
+                            <li>백석대학교 시각디자인과 진학</li>
+                        </ul>
+                        <ul>2018.04
+                            <li>군 입대</li>
+                        </ul>
+                        <ul>2019.04
+                            <li>보충역 편입으로 인한 군 제대</li>
+                        </ul>
+                        <ul>
+                            <li>군 복무 중단 기간</li>
+                            <li>Adobe Illustraotr, Photoshop, Affter Effect 독학</li>
+                        </ul>
+                        <ul>2020.02
+                            <li>사회복무요원</li>
+                        </ul>
+                        <ul>2020.11
+                            <li>소집 해제</li>
+                        </ul>
+                        <ul>2021.03
+                            <li>복학</li>
+                            <li>학생회 가입</li>
+                            <li>과잠 디자인</li>
+                        </ul>
+                        <ul>2021.06
+                            <li>대전 신세계백화점 부띠끄 매장 인테리어 시공사 용역 아르바이트(3개월)</li>
+                        </ul>
+                        <ul>
+                            <li>아르바이트 기간</li>
+                        </ul>
+                        <ul>2021.08
+                            <li>2021-2학기 전액 장학금 수여</li>
+                            <li>트렌드 전시회 진행</li>
+                            <li>전공 홍보 동영상 제작</li>
+                        </ul>
+                        <ul>2021.11
+                            <li>전공 홍보 동영상 공모전 은상</li>
+                        </ul>
+                        <ul>2021.12
+                            <li>UI/UX 디자인 진로 선택</li>
+                        </ul>
+                        <ul>2022.03
+                            <li>성적 우수 장학금 수여</li>
+                            <li>교수 추천 장학금 수여</li>
+                            <li>리더십(학회) 장학금 수여</li>
+                            <li>UIUX 소모임 개설</li>
+                            <li>주 1회 디자인 스터디 진행</li>
+                        </ul>
+                        <ul>2022.05
+                            <li>교내 창업 아이디어 경진대회 본선 진출</li>
+                        </ul>
+                        <ul>2022.06
+                            <li>충남 서일고등학교 전공 체험 지도</li>
+                            <li>트렌드 전시회 진행</li>
+                            <li>학생회장 임기 시작</li>
+                        </ul>
+                        <ul>2022.09
+                            <li>성적 우수 장학금 수여</li>
+                            <li>교수 추천 장학금 수여</li>
+                            <li>리더십(학회) 장학금 수여</li>
+                            <li>인디비주얼(UIUX 동아리) 운영</li>
+                            <li>동아리 스터디 진행</li>
+                            <li>학생회 운영</li>
+                            <li>학생회 대상 디자인 스터디 진행</li>
+                            <li>축제 부스 기획/운영</li>
+                        </ul>
+                        <ul>2022.12
+                            <li>창업동아리 성과발표대회</li>
+                            <li>전공 현장 체험학습 진행</li>
+                        </ul>
+                        <ul>2023.02
+                            <li>신입생 OT 진행</li>
+                            <li>전공 홍보 리플렛 디자인</li>
+                            <li>동아리 홈페이지 프로젝트 진행</li>
+                        </ul>
+                        <ul>2023.03
+                            <li>교수 추천 장학금 수여</li>
+                            <li>리더십(학회) 장학금 수여</li>
+                            <li>인디비주얼(UIUX 동아리) 운영</li>
+                            <li>인디비주얼 동아리 부원 모집</li>
+                            <li>동아리 프로젝트 진행</li>
+                            <li>동아리 대상 디자인 강의 진행</li>
+                            <li>지게차 렌탈몰 프로젝트 진행</li>
+                            <li>체커 프로젝트 진행</li>
+                            <li>학생회 운영</li>
+                            <li>전공 MT 기획</li>
+                        </ul>
+                        <ul>2023.05
+                            <li>교내 창업 아이디어 경진대회 대상</li>
+                            <li>전공 MT 진행</li>
+                        </ul>
+                        <ul>2023.06
+                            <li>학생회장 임기 종료</li>
+                            <li>북링크 프로젝트 진행</li>
+                        </ul>
+                        <ul>
+                            <li>북링크 프로젝트 진행기간</li>
+                        </ul>
+                        <ul>2023.09
+                            <li>졸업 전시 준비</li>
+                            <li>온라인 졸업 전시 프로젝트 진행</li>
+                        </ul>
+                        <ul>2023.11
+                            <li>졸업 전시회</li>
+                            <li>인디비주얼 동아리 인수인계</li>
+                            <li>포트폴리오 제작
+                            </li>
+                        </ul>
+                        <ul>현재
+                        </ul>
+                    </div>
+                </div>
+                <div class="imgbox">
+                    <img src="./work/actnova_logo.webp" alt="">
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+
+
+    <footer>
+        <div class="footer-container">
+            <p>이 사이트는 비상업적인 용도로 개인의 취업 활동을 위한 웹 포트폴리오입니다.</p>
+            <p>웹사이트를 포함한 모든 콘텐츠는 개인의 창작물이며 위 포트폴리오의 무단 복제와 배포를 금지합니다.</p>
+        </div>
+    </footer>
+
+    <script src="./slider.js"></script>
+    <script src="./modal.js"></script>
+</body>
+
+</html>
