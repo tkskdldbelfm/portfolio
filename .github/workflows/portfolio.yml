@@ -27,6 +27,18 @@ jobs:
               env:
                 - name: NODE_ENV
                   value: production
+                - name: DATABASE_NAME
+                  secret: DATABASE_NAME
+                - name: DATABASE_PASSWORD
+                  secret: DATABASE_PASSWORD
+                - name: DATABASE_PORT
+                  secret: DATABASE_PORT
+                - name: DATABASE_USERNAME
+                  secret: DATABASE_USERNAME
+                - name: DATABASE_HOST
+                  secret: DATABASE_HOST
+                - name: SECRET_KEY
+                  secret: SECRET_KEY
               ports: 3000
             context:
               git:
