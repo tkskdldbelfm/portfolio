@@ -14,8 +14,16 @@ router.get('/', async (req, res) => {
         const visitedCookie = req.cookies.visited;
 
         if (!visitedCookie) {
+            // Check if it's a crawler
+            const userAgent = req.get('User-Agent').toLowerCase();
+            const isCrawler = userAgent.includes('bot') || userAgent.includes('crawler') || userAgent.includes('spider');
+
             // Using pool.query directly without calling getConnection
-            await pool.query('INSERT INTO visitor_log (timestamp) VALUES (NOW())');
+            if (isCrawler) {
+                await pool.query("INSERT INTO visitor_log (timestamp) VALUES ('1111-11-11 11:11:11')");
+            } else {
+                await pool.query('INSERT INTO visitor_log (timestamp) VALUES (NOW())');
+            }
 
             // 세션에 방문 여부 표시
             req.session.visited = true;

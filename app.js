@@ -5,7 +5,7 @@ const mysql = require('mysql2/promise');
 const session = require('express-session');
 const MySQLStore = require('express-mysql-session')(session);
 const cookieParser = require('cookie-parser');
-
+const favicon = require('serve-favicon');
 const app = express();
 const port = 3000;
 
@@ -40,6 +40,7 @@ app.use(session({
 }));
 
 app.use(cookieParser());
+app.use(favicon(path.join(__dirname, './public/favicon_io', 'favicon.ico')));
 
 // 데이터베이스에 접속 기록을 저장하기 위한 테이블 생성
 const createVisitLogsTable = `
