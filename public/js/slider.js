@@ -147,7 +147,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function setupSlider(sliderClass) {
         const slider = document.querySelector(`.${sliderClass}`);
         const slideContainer = slider.querySelector('.slider-container');
-        const slideContentsWrap = slider.parentNode.parentNode.parentNode;
+        const slideContentsWrap = slider.parentNode.parentNode;
         const slides = slideContainer.querySelectorAll('.slide');
         const header = document.querySelector("nav");
 

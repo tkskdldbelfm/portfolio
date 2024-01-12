@@ -742,7 +742,7 @@ section .header a {
 .main-section .contents-wrap .img-slider {
     display: flex;
     width: 88rem;
-    height: 58rem;
+    height: 62.25rem;
     overflow: hidden;
     gap: 1rem;
     align-items: center;
